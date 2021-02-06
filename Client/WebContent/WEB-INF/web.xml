@@ -9,4 +9,15 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <!-- 404에러처리 -->
+  <error-page>
+  	<error-code>404</error-code>
+  	<location>/ErrorPage404.jsp</location>
+  </error-page>
+  <!-- 500에러처리 -->
+  <error-page>
+  	<error-code>500</error-code>
+  	<location>/ErrorPage500.jsp</location>
+  </error-page>
+  
 </web-app>
