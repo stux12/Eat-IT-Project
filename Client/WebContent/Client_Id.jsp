@@ -68,12 +68,8 @@ footer {
 		<div class="login_logo">
 			<img src="" alt="로고 이미지 크게 들어올곳" />
 		</div>
-		<form action="ClientFindPw.do" method="post">
+		<form action="ClientFindId.do" method="post">
 			<table>
-				<tr>
-					<td>아이디</td>
-					<td><input type="text" name="id1" style="width: 162px; border-radius: 5px;" required/> </td>
-				</tr>
 				<tr>
 					<td>이름</td>
 					<td><input type="text" name="irum1" style="width: 162px; border-radius: 5px;" required/> </td>

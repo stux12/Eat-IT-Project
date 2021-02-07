@@ -7,7 +7,17 @@
 <title>Insert title here</title>
 </head>
 <body>
-	여기는 메인페이지입니당
-	로그인 성공하였습니당~~
+	<a href="Client_Login.jsp">로그인</a><br />
+	
+	
+	<br /><br /><br />
+	
+	
+	회원정보보기 및 업데이트 및 삭제
+	<form action="ClientOneView.do">
+		<input type="hidden" name="id1" value="admin"/>
+		<input type="submit" value="보자" />
+	</form>
+	
 </body>
 </html>

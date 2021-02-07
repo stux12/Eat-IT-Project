@@ -77,27 +77,34 @@ footer {
 				</tr>
 				<tr>
 					<td>아이디</td>
-					<td><input type="text" name="id1" style="width: 162px; border-radius: 5px"/> </td>
+					<td><input type="text" name="id1" style="width: 162px; border-radius: 5px" required/> </td>
 				</tr>
 				<tr>
 					<td>비밀번호</td>
-					<td><input	type="password" name="pw1" style="width: 162px; border-radius: 5px"/> </td>
+					<td><input type="password" name="pw1" style="width: 162px; border-radius: 5px" required/> </td>
+				</tr>
+				<tr>
+					<td>비밀번호확인</td>
+					<td><input type="password" name="pw2" style="width: 162px; border-radius: 5px" required /></td>
 				</tr>
 				<tr>
 					<td>닉네임</td>
-					<td><input type="text" name="nick1" style="width: 162px; border-radius: 5px"/> </td>
+					<td><input type="text" name="nick1" style="width: 162px; border-radius: 5px" required/> </td>
 				</tr>
 				<tr>
 					<td>이름</td>
-					<td><input type="text" name="irum1" style="width: 162px; border-radius: 5px"/> </td>
+					<td><input type="text" name="irum1" style="width: 162px; border-radius: 5px" required/> </td>
 				</tr>
 				<tr>
 					<td>전화번호</td>
 					<td>
-						<input type='tel' name='phone1' style="width: 30px; border-radius: 5px"/>-
-						<input type='tel' name='phone2' style="width: 50px; border-radius: 5px"/>- 
-						<input type='tel' name='phone3' style="width: 50px; border-radius: 5px"/>
+						<input type='tel' name='phone1' style="width: 30px; border-radius: 5px" value="010" readonly required/>-
+						<input type='tel' name='phone2' style="width: 50px; border-radius: 5px" maxlength="4" required/>- 
+						<input type='tel' name='phone3' style="width: 50px; border-radius: 5px" maxlength="4" required/>
 					</td>
+				</tr>
+				<tr>
+					<td colspan="2"><input type="checkbox" /> 개인정보수집에 동의하십니까?</td>
 				</tr>
 			</table>
 			<div class="button">
