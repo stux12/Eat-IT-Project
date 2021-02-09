@@ -3,6 +3,7 @@ package com.client.main;
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,6 +15,7 @@ import com.client.sub.ClientDelete;
 import com.client.sub.ClientDeleteManager;
 import com.client.sub.ClientFindId;
 import com.client.sub.ClientFindPw;
+import com.client.sub.ClientIdCheck;
 import com.client.sub.ClientImpl;
 import com.client.sub.ClientLoginCheck;
 import com.client.sub.ClientLoginInsert;
@@ -36,9 +38,8 @@ public class ClientFrontController extends HttpServlet {
     	
     	String check = request.getRequestURI().substring(request.getContextPath().length());
     	System.out.println(check);
-    	String page = "";
     	ClientImpl h1 = null;
-    	
+    	ServletContext app = null;
     	switch (check) {
     	//로그인체크
 		case "/Client/LoginCheck.do":
@@ -48,9 +49,23 @@ public class ClientFrontController extends HttpServlet {
 			}catch (Exception e) {
 				e.printStackTrace();
 			}
-			page = "MainPage.jsp";
 			break;
-
+			
+		case "/Client/ClientIdCheck.do":
+			h1 = new ClientIdCheck();
+			try {
+				h1.execute(request, response);
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
+			break;
+		//로그아웃
+		case "/LogOut.do":
+			app = request.getServletContext();
+			app.removeAttribute("id1");
+			response.sendRedirect("/Client/MainPage.jsp");
+			break;
+			
 		//회원가입
 		case "/Client/ClientInsert.do":
 			h1 = new ClientLoginInsert();
@@ -69,7 +84,6 @@ public class ClientFrontController extends HttpServlet {
 			}catch (Exception e) {
 				e.printStackTrace();
 			}
-			page = "Client/Client_IdJoin.jsp";
 			break;
 			
 		//회원pw찾기
@@ -83,18 +97,17 @@ public class ClientFrontController extends HttpServlet {
 			break;
 			
 		//회원정보보기
-		case "/Client/ClientOneView.do" :
+		case "/ClientOneView.do" :
 			h1 = new ClientOneView();
 			try {
 				h1.execute(request, response);
 			}catch (Exception e) {
 				e.printStackTrace();
 			}
-			page = "Client_OneView.jsp";
 			break;
 			
 		//회원정보삭제
-		case "/Client/ClientDelete.do":
+		case "/ClientDelete.do":
 			h1 = new ClientDelete();
 			try {
 				h1.execute(request, response);
@@ -104,7 +117,7 @@ public class ClientFrontController extends HttpServlet {
 			break;
 		
 		//회원정보 업데이트
-		case "/Client/ClientUpdate.do" :
+		case "/ClientUpdate.do" :
 			h1 = new ClientUpdate();
 			try {
 				h1.execute(request, response);
@@ -114,25 +127,23 @@ public class ClientFrontController extends HttpServlet {
 			break;
 		
 		//회원 전체보기(관리자용)
-		case "/Client/ClientAllView.do":
+		case "/ClientAllView.do":
 			h1 = new ClientAllView();
 			try {
 				h1.execute(request, response);
 			}catch (Exception e) {
 				e.printStackTrace();
 			}
-			page = "Manager/Client_AllView.jsp";
 			break;
 		
 		//회원 삭제하기(관리자용)
-		case "/Client/ClientDeleteManager.do":
+		case "/ClientDeleteManager.do":
 			h1 = new ClientDeleteManager();
 			try {
 				h1.execute(request, response);
 			}catch (Exception e) {
 				e.printStackTrace();
 			}
-			page = "Manager/Client_AllView.jsp";
 			break;
 			
 			

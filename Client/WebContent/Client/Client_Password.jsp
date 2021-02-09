@@ -5,42 +5,61 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<!-- 메뉴바 -->
+<link href="../CSS/Style.css" rel="stylesheet" type="text/css">
 
+<!-- section -->
 <style>
-* {
-	padding: 0;
-	margin: 0;
-}
 
-header>h2 {
-	align-content: center;
-	text-align: center;
-	border: 1px solid;
-	background-color: aqua;
-}
-
-
-
-.login_logo{
+.Login_Logo{
 	text-align: center;
 	margin: 5px;
 	padding: 5px;
 }
 
-table{
+.Login_Logo img{
+	width: 400px;
+	height: 300px;
+	margin-bottom: -100px;
+}
+
+.Table1{
 	margin-left: auto;
 	margin-right: auto;
 }
 
-td{
+.Table1 td{
 	padding: 5px;
 	margin: 20px;
 }
 
-.button{
+.FindPw{
+	text-align: center;
+}
+
+.Id1 input, .Irum1 input{
+	width: 162px; 
+	border-radius: 5px;
+}
+
+.Tel1 input:nth-child(1){
+	width: 30px; 
+	border-radius: 5px;
+}
+.Tel1 input:nth-child(n+2){
+	width: 50px;
+	border-radius: 5px;
+}
+
+.ButtonDiv{
 	text-align: center;
 	padding: 5px;
 	margin: 10px;
+}
+
+.ButtonDiv input{
+	width: 100px; 
+	border-radius: 15px;
 }
 
 footer {
@@ -50,57 +69,64 @@ footer {
 }
 </style>
 
+<!-- footer -->
+
+
+<!-- script -->
+<script>
+	function Button1_Click() {
+		location.href='../Client/Client_Login.jsp';
+	}
+</script>
 </head>
 <body>
 	
 	<!-- 상단부분 -->
 	<header>
-		<h2>메뉴바가 들어올 공간입니다.</h2>
+		<div class="menubar">
+			<div class="logo">
+				<a href="../MainPage.jsp"></a>
+			</div>
+		</div>
 	</header>
 
-
-	<br />
-	<br />
-	<br />
-	
 	<!-- 중간부분 -->
 	<section>
-		<div class="login_logo">
-			<img src="" alt="로고 이미지 크게 들어올곳" />
+		<div class="Login_Logo">
+			<img src="../img/EATit.png" alt="로고 이미지 크게 들어올곳" />
 		</div>
 		<form action="ClientFindPw.do" method="get">
-			<table>
+			<table class="Table1">
 				<tr>
-					<td>아이디</td>
-					<td><input type="text" name="id1" style="width: 162px; border-radius: 5px;" required/> </td>
+					<td class="FindPw" colspan="2"><h3>EAT iT 비밀번호 찾기</h3></td>
 				</tr>
 				<tr>
-					<td>이름</td>
-					<td><input type="text" name="irum1" style="width: 162px; border-radius: 5px;" required/> </td>
+					<td class="Id">아이디</td>
+					<td class="Id1"><input type="text" name="id1" required/> </td>
 				</tr>
 				<tr>
-					<td>전화번호</td>
-					<td>
-						<input type='tel' name='phone1' style="width: 30px; border-radius: 5px;" required value="010" readonly/>-
-						<input type='tel' name='phone2' style="width: 50px; border-radius: 5px;" required/>- 
-						<input type='tel' name='phone3' style="width: 50px; border-radius: 5px;" required/>
+					<td class="Irum">이름</td>
+					<td class="Irum1"><input type="text" name="irum1" required/> </td>
+				</tr>
+				<tr>
+					<td class="Tel">전화번호</td>
+					<td class="Tel1">
+						<input type='tel' name='phone1' value="010" required readonly/>-
+						<input type='tel' name='phone2' required/>- 
+						<input type='tel' name='phone3' required/>
 					</td>
 				</tr>
 			</table>
-			<div class="button">
-				<input type="submit" value="찾기" style="width: 100px; border-radius: 15px;"/>
-				<input type="button"  value="취소" style="width: 100px; border-radius: 15px;" onclick="location.href='/Client/Client/Client_Login.jsp'"/>
+			<div class="ButtonDiv">
+				<input type="submit" value="찾기" />
+				<input type="button" value="취소" onclick="Button1_Click()"/>
 			</div>	
 		</form>
 	</section>
 	
-	
-	
 	<br />
 	<br />
 	<br />
-
-
 
 	<!-- 하단부분 -->
 	<footer> 여기는 상세정보가 통일되서 들어올 공간입니다. </footer>

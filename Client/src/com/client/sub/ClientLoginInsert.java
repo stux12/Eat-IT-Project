@@ -31,16 +31,21 @@ public class ClientLoginInsert implements ClientImpl {
 			DAO d1 = new DAO();
 			boolean sucess = d1.Client_insert(id1, pw1, nick1, irum1, tel1);
 			if(sucess) {
-				
+				response.setContentType("text/html; charset=UTF-8"); 
+				PrintWriter writer = response.getWriter(); 
+				writer.println("<script>alert('회원가입이 완료되었습니다.'); location.href='"+"Client_Login.jsp"+"';</script>"); 
+				writer.close();
+			}else {
+				response.setContentType("text/html; charset=UTF-8"); 
+				PrintWriter writer = response.getWriter(); 
+				writer.println("<script>alert('회원가입에 실패하였습니다.'); location.href='"+"Client_Insert.jsp"+"';</script>"); 
+				writer.close();
 			}
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		response.setContentType("text/html; charset=UTF-8"); 
-		PrintWriter writer = response.getWriter(); 
-		writer.println("<script>alert('회원가입이 완료되었습니다.'); location.href='"+"Client_Login.jsp"+"';</script>"); 
-		writer.close();
+		
 		
 		
 		

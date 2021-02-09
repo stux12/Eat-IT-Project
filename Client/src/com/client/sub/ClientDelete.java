@@ -2,8 +2,10 @@ package com.client.sub;
 
 import java.io.PrintWriter;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 
 import DB_DAO.DAO;
 
@@ -22,6 +24,9 @@ public class ClientDelete implements ClientImpl {
 		if(sucess) {
 			
 		}
+		
+		ServletContext app = request.getServletContext();
+		app.removeAttribute("id1");
 		
 		response.setContentType("text/html; charset=UTF-8"); 
 		PrintWriter writer = response.getWriter(); 
