@@ -19,7 +19,7 @@ header>h2 {
 	background-color: aqua;
 }
 
-.login_logo, .login_id, .login_pw, .login_button, .password_join {
+.login_logo, .login_id, .login_pw, .login_button, .id_join , .password_join {
 	text-align: center;
 	margin: 5px;
 	padding: 5px;
@@ -64,7 +64,7 @@ footer {
 	<!-- 중간부분 -->
 	<section>
 		<div class="login_logo">
-			<img src="" alt="로고 이미지 크게 들어올곳" />
+			<a href="/Client/MainPage.jsp"><img src="" alt="로고 이미지 크게 들어올곳" /></a>
 		</div>
 		<hr>
 		<form action="LoginCheck.do">
@@ -83,8 +83,11 @@ footer {
 					style="width: 150px; height: 50px; border-radius: 15px"
 					onclick="location.href='Client_Insert.jsp'" />
 			</div>
+			<div class="id_join">
+				<a href="/Client/Client/Client_Id.jsp">EAT iT 아이디를 잃어버리셨나요??</a>
+			</div>
 			<div class="password_join">
-				<a href="Client_Password.jsp">EAT iT 암호를 잃어버리셨나요??</a>
+				<a href="/Client/Client/Client_Password.jsp">아니면 EAT iT 암호를 잃어버리셨나요??</a>
 			</div>
 		</form>
 	</section>

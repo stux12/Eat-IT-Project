@@ -2,6 +2,7 @@ package com.client.sub;
 
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -31,10 +32,8 @@ public class ClientUpdate implements ClientImpl {
 		if(sucess) {
 		}
 		
-		response.setContentType("text/html; charset=UTF-8"); 
-		PrintWriter writer = response.getWriter(); 
-		writer.println("<script>alert('회원수정 되셨습니다..'); location.href='"+"MainPage.jsp"+"';</script>"); 
-		writer.close();
+		RequestDispatcher rd1 = request.getRequestDispatcher("/MainPage.jsp");
+		rd1.forward(request, response);
 		
 	}
 

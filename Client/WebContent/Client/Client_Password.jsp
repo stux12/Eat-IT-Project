@@ -68,7 +68,7 @@ footer {
 		<div class="login_logo">
 			<img src="" alt="로고 이미지 크게 들어올곳" />
 		</div>
-		<form action="ClientFindPw.do" method="post">
+		<form action="ClientFindPw.do" method="get">
 			<table>
 				<tr>
 					<td>아이디</td>
@@ -81,7 +81,7 @@ footer {
 				<tr>
 					<td>전화번호</td>
 					<td>
-						<input type='tel' name='phone1' style="width: 30px; border-radius: 5px;" required/>-
+						<input type='tel' name='phone1' style="width: 30px; border-radius: 5px;" required value="010" readonly/>-
 						<input type='tel' name='phone2' style="width: 50px; border-radius: 5px;" required/>- 
 						<input type='tel' name='phone3' style="width: 50px; border-radius: 5px;" required/>
 					</td>
@@ -89,7 +89,7 @@ footer {
 			</table>
 			<div class="button">
 				<input type="submit" value="찾기" style="width: 100px; border-radius: 15px;"/>
-				<input type="reset"  value="취소" style="width: 100px; border-radius: 15px;"/>
+				<input type="button"  value="취소" style="width: 100px; border-radius: 15px;" onclick="location.href='/Client/Client/Client_Login.jsp'"/>
 			</div>	
 		</form>
 	</section>

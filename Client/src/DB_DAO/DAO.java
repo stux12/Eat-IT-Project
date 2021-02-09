@@ -27,6 +27,20 @@ public class DAO {
 		if(con != null){ con.close(); }
 	}
 	
+	//로그인확인
+	public boolean Client_Login (String id1,String pw1) throws SQLException {
+		VO vo1=null;
+		String sql = "SELECT * FROM CLIENT WHERE ID=? AND PW=?";
+		pstmt = con.prepareStatement(sql);
+		pstmt.setString(1, id1);
+		pstmt.setString(2, pw1);
+		rs = pstmt.executeQuery();//
+		if(rs.next()){
+			return true;
+	}else { 
+		return false;
+	}
+	}
 	
 	
 	//회원가입
@@ -50,23 +64,19 @@ public class DAO {
 	
 	
 	//전체검색할때 사용
-	public ArrayList <VO> getAllInfo() throws SQLException{
-		ArrayList<VO> tiarray = new ArrayList<VO>();
+	public ArrayList <VO> Manager_AllView() throws SQLException{
+		ArrayList<VO> array = new ArrayList<VO>();
 		String sql = "SELECT * FROM TelTable5 ORDER BY id";
 		
 		pstmt = con.prepareStatement(sql);
 		rs = pstmt.executeQuery();
 		while(rs.next()){
-			int id = rs.getInt(1);
+			String id = rs.getString(1);
 			String name = rs.getString(2);
-			String tel = rs.getString(3);
-			Date d = rs.getDate(4);
-			//컬럼명, 순번, alias 지금껀 순번으로한것임
-			
-			VO tv = new VO(id,name,tel,d);
-			tiarray.add(tv);
+			VO vo1 = new VO(id,name);
+			array.add(vo1);
 		}
-		return tiarray;
+		return array;
 	}
 	
 	// 한명조회
@@ -76,7 +86,7 @@ public class DAO {
 		pstmt = con.prepareStatement(sql);
 		pstmt.setString(1, id1);
 		rs = pstmt.executeQuery();//
-		if(rs.next()){//찾았으면 rs종이박스에 홍길동정보가 있다
+		if(rs.next()){
 			String id=rs.getString(1);
 			String pw=rs.getString(2);
 			String nick=rs.getString(3);
@@ -87,13 +97,50 @@ public class DAO {
 			String phone3 = telarr[2];
 			
 			Date d=rs.getDate(6);
-			vo1=new VO(id,pw,nick,name,phone2,phone3,d);//생성자 사용하여 vo 그릇에 넣자 
+			vo1=new VO(id,pw,nick,name,phone2,phone3,d); 
 			                 
-	}else { //그런 이름이 없으면 
-		vo1=null; //tv객체참조변수에 null 
+	}else { 
+		vo1=null;  
 	}
-	return vo1;// tv리턴 
-	}//search_nametel()-end
+	return vo1;
+	}
+	
+	//아이디찾기
+	public VO Client_OneJoinId(String id1, String tel1) throws SQLException{
+		VO vo1=null;
+		String sql = "SELECT ID FROM CLIENT WHERE ID=? AND PHONENUMBER=?";
+		pstmt = con.prepareStatement(sql);
+		pstmt.setString(1, id1);
+		pstmt.setString(2, tel1);
+		rs = pstmt.executeQuery();
+		if(rs.next()){
+			String id=rs.getString(1);
+			vo1=new VO(id); 
+			                 
+	}else { 
+		vo1=null;  
+	}
+	return vo1;
+	}
+	
+	//비밀번호찾기
+	public VO Client_OneJoinPw(String id1, String irum1, String tel1) throws SQLException{
+		VO vo1=null;
+		String sql = "SELECT PW FROM CLIENT WHERE ID=? AND NAME=? AND PHONENUMBER=?";
+		pstmt = con.prepareStatement(sql);
+		pstmt.setString(1, id1);
+		pstmt.setString(2, irum1);
+		pstmt.setString(3, tel1);
+		rs = pstmt.executeQuery();
+		if(rs.next()){
+			String pw=rs.getString(1);
+			vo1=new VO(pw);   
+	}else {
+		vo1=null;  
+	}
+	return vo1;
+	}
+	
 	
 	
 	//회원업데이트

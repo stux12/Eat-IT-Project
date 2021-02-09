@@ -14,6 +14,22 @@ public class VO {
 	
 	
 	
+	public VO(String IdPw) {
+		this.id = IdPw;
+		this.pw = IdPw;
+	}
+
+	
+	public VO(String id, String name) {
+		this.id = id;
+		this.name = name;
+	}
+
+
+
+
+
+
 	public VO(String id, String pw, String nick, String name, String phone2,String phone3, Date d) {
 		this.id = id;
 		this.pw = pw;

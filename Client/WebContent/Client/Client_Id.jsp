@@ -72,12 +72,12 @@ footer {
 			<table>
 				<tr>
 					<td>이름</td>
-					<td><input type="text" name="irum1" style="width: 162px; border-radius: 5px;" required/> </td>
+					<td><input type="text" name="irum1" style="width: 162px; border-radius: 5px;" required /></td>
 				</tr>
 				<tr>
 					<td>전화번호</td>
 					<td>
-						<input type='tel' name='phone1' style="width: 30px; border-radius: 5px;" required/>-
+						<input type='tel' name='phone1' style="width: 30px; border-radius: 5px;" required value="010" readonly/>-
 						<input type='tel' name='phone2' style="width: 50px; border-radius: 5px;" required/>- 
 						<input type='tel' name='phone3' style="width: 50px; border-radius: 5px;" required/>
 					</td>
@@ -85,7 +85,7 @@ footer {
 			</table>
 			<div class="button">
 				<input type="submit" value="찾기" style="width: 100px; border-radius: 15px;"/>
-				<input type="reset"  value="취소" style="width: 100px; border-radius: 15px;"/>
+				<input type="button"  value="취소" style="width: 100px; border-radius: 15px;" onclick="location.href='/Client/Client/Client_Login.jsp'"/>
 			</div>	
 		</form>
 	</section>

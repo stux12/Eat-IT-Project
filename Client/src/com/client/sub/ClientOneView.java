@@ -1,5 +1,6 @@
 package com.client.sub;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -21,7 +22,8 @@ public class ClientOneView implements ClientImpl {
 		
 		request.setAttribute("vo1", vo1);
 		
-		
+		RequestDispatcher rd1 = request.getRequestDispatcher("Client_OneView.jsp");
+		rd1.forward(request, response);
 		
 	}
 

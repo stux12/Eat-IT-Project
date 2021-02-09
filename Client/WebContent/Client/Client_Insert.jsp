@@ -109,7 +109,7 @@ footer {
 			</table>
 			<div class="button">
 				<input type="submit" value="가입" style="width: 100px; border-radius: 15px"/>
-				<input type="reset"  value="취소" style="width: 100px; border-radius: 15px"/>
+				<input type="button"  value="취소" style="width: 100px; border-radius: 15px" onclick="location.href='/Client/Client/Client_Login.jsp'"/>
 			</div>	
 		</form>
 	</section>
