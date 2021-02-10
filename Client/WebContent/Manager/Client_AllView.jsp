@@ -10,10 +10,70 @@
 <link href="../CSS/Style.css" rel="stylesheet" type="text/css">
 
 <style>
-.login_logo img {
+.Logo img{
+	width: 100px;
+	height: 75px;
+	margin-left: -8px;
+	margin-top: -1px;
+}
+
+.Login_Logo img {
 	width: 400px;
 	height: 300px;
+	margin-top: -85px;
 	margin-bottom: -100px;
+}
+
+.Login_Logo {
+	text-align: center;
+	margin: 5px;
+	padding: 5px;
+}
+
+.Table1{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.Table1 td{
+	padding: 5px;
+	margin: 20px;
+	border: 1px solid;
+}
+
+.Join{
+	text-align: center;
+}
+
+.Join h3{
+	margin-top: -5px;
+	margin-bottom: -5px;
+}
+
+.Id1 input, .Irum1 input{
+	width: 162px; 
+	border-radius: 5px;
+}
+
+.Id1 , .Irum1{
+	width: 150px;
+}
+
+.ButtonDiv{
+	text-align: center;
+	padding: 5px;
+	margin: 10px;
+}
+
+.ButtonDiv input{
+	width: 150px; 
+	border-radius: 15px;
+}
+
+footer {
+	text-align: center;
+	border: 1px solid;
+	background-color: aqua;
 }
 </style>
 
@@ -22,8 +82,8 @@
 	<!-- 상단부분 -->
 	<header>
 		<div class="menubar">
-			<div class="logo">
-				<a href="#"></a>
+			<div class="Logo">
+				<a href="/Client/MainPage.jsp"><img src="img/EATit.png" alt="로고 이미지 크게 들어올곳" /></a>
 			</div>
 		</div>
 	</header>
@@ -32,27 +92,36 @@
 
 	<!-- 중간부분 -->
 	<section>
-		<div class="login_logo">
-			<img src="../img/EATit.png" alt="로고 이미지 크게 들어올곳" />
+		<div class="Login_Logo">
+			<img src="img/EATit.png" alt="로고 이미지 크게 들어올곳" />
 		</div>
-		<table border="2">
+		<table class="Table1">
 			<tr>
-				<td>아이디</td>
-				<td>이름</td>
+				<td class="Join" colspan="2"><h3>EAT iT 정보 전체조회</h3></td>
+			</tr>
+			<tr>
+				<td class="Id">아이디</td>
+				<td class="irum">이름</td>
 			</tr>
 			<c:forEach var="i" items="${alist1}">
 				<tr>
-					<td><a href="ClientDeleteManager.do?id1=${i.id}">${i.id}</a></td>
-					<td>${i.name}</td>
+					<td class="Id1"><a href="ClientDeleteManager.do?id1=${i.id}">${i.id}</a></td>
+					<td class="Irum1">${i.name}</td>
 				</tr>
 			</c:forEach>
-			<table border="0">
 				<tr>
 				</tr>
-			</table>
-
-			<input type="button" value="이전으로 돌아가기"
-				onclick="location.href='../MainPage.jsp'" />
-			</section>
+		</table>
+		<div class="ButtonDiv">
+			<input type="button" value="이전으로 돌아가기" onclick="location.href='/Client/MainPage.jsp'" />
+		</div>
+	</section>
+	
+	<br />
+	<br />
+	<br />
+	
+	<!-- 하단부분 -->
+	<footer> 여기는 상세정보가 통일되서 들어올 공간입니다. </footer>
 </body>
 </html>

@@ -1,21 +1,17 @@
 package com.client.main;
 
 import java.io.IOException;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import com.client.sub.ClientAllView;
 import com.client.sub.ClientDelete;
 import com.client.sub.ClientDeleteManager;
 import com.client.sub.ClientFindId;
 import com.client.sub.ClientFindPw;
-import com.client.sub.ClientIdCheck;
 import com.client.sub.ClientImpl;
 import com.client.sub.ClientLoginCheck;
 import com.client.sub.ClientLoginInsert;
@@ -30,17 +26,19 @@ public class ClientFrontController extends HttpServlet {
         super();
     }
 
-    
+    //get이건 post건 여기로 와서 처리
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		request.setCharacterEncoding("UTF-8");
     	response.setCharacterEncoding("UTF-8");
     	
-    	String check = request.getRequestURI().substring(request.getContextPath().length());
-    	System.out.println(check);
-    	ClientImpl h1 = null;
-    	ServletContext app = null;
-    	switch (check) {
+    	//경로가 어떻게 되는지 확인 개 햇갈림
+    	String url = request.getRequestURI().substring(request.getContextPath().length());
+    	System.out.println(url);
+    	ClientImpl h1 = null; //request, response사용을 위해
+    	ServletContext app = null; //application화 하기위해서 선언
+    	switch (url) {
+    	
     	//로그인체크
 		case "/Client/LoginCheck.do":
 			h1 = new ClientLoginCheck();
@@ -51,14 +49,6 @@ public class ClientFrontController extends HttpServlet {
 			}
 			break;
 			
-		case "/Client/ClientIdCheck.do":
-			h1 = new ClientIdCheck();
-			try {
-				h1.execute(request, response);
-			}catch (Exception e) {
-				e.printStackTrace();
-			}
-			break;
 		//로그아웃
 		case "/LogOut.do":
 			app = request.getServletContext();

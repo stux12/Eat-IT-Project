@@ -2,9 +2,6 @@ package com.client.sub;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.apache.catalina.ha.backend.Sender;
-
 import DB_DAO.DAO;
 
 public class ClientDeleteManager implements ClientImpl {

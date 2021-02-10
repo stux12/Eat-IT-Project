@@ -24,7 +24,6 @@ public class ClientOneView implements ClientImpl {
 		VO vo1 = dao1.Client_OneJoin(id1);
 		
 		request.setAttribute("vo1", vo1);
-		
 		RequestDispatcher rd1 = request.getRequestDispatcher("Client/Client_OneView.jsp");
 		rd1.forward(request, response);
 		

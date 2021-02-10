@@ -40,12 +40,11 @@ public class DAO {
 
 	// 로그인확인
 	public boolean Client_Login(String id1, String pw1) throws SQLException {
-		VO vo1 = null;
 		String sql = "SELECT * FROM CLIENT WHERE ID=? AND PW=?";
 		pstmt = con.prepareStatement(sql);
 		pstmt.setString(1, id1);
 		pstmt.setString(2, pw1);
-		rs = pstmt.executeQuery();//
+		rs = pstmt.executeQuery();
 		if (rs.next()) {
 			return true;
 		} else {
@@ -71,6 +70,21 @@ public class DAO {
 		return true;
 	}
 
+	//ID중복확인
+	public boolean Client_IdCheck(String id1) throws SQLException {
+		String sql = "SELECT ID FROM CLIENT WHERE ID=?";
+		boolean check=false;
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id1);
+			rs = pstmt.executeQuery();
+			check = rs.next();
+		}catch (Exception e) {
+			return check;
+		}
+		return check;
+	}
+	
 	// 전체검색할때 사용
 	public ArrayList<VO> Manager_AllView() throws SQLException {
 		ArrayList<VO> array = new ArrayList<VO>();
@@ -87,7 +101,7 @@ public class DAO {
 		return array;
 	}
 
-	// 한명조회, ID확인도 됨
+	// 한명조회
 	public VO Client_OneJoin(String id1) throws SQLException {
 		VO vo1 = null;
 		String sql = "SELECT * FROM CLIENT WHERE ID=?";
@@ -149,8 +163,8 @@ public class DAO {
 	}
 
 	// 회원업데이트
-	public boolean Client_Update(String pw1, String nick1, String name1, String tel1, String id1, Date d1) {
-		String sql = "UPDATE CLIENT SET PW=?, NICK=?, NAME=?, PHONENUMBER=?, D=? WHERE ID=?";
+	public boolean Client_Update(String pw1, String nick1, String name1, String tel1, String id1) {
+		String sql = "UPDATE CLIENT SET PW=?, NICK=?, NAME=?, PHONENUMBER=? WHERE ID=?";
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, pw1);
@@ -158,7 +172,6 @@ public class DAO {
 			pstmt.setString(3, name1);
 			pstmt.setString(4, tel1);
 			pstmt.setString(5, id1);
-			pstmt.setDate(6, d1);
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			System.out.println("update Exception");

@@ -1,13 +1,8 @@
 package com.client.sub;
 
 import java.io.PrintWriter;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.apache.jasper.tagplugins.jstl.core.Out;
-
 import DB_DAO.DAO;
 
 public class ClientLoginInsert implements ClientImpl {
@@ -17,7 +12,6 @@ public class ClientLoginInsert implements ClientImpl {
 		
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
-		
 		String id1 = request.getParameter("id1");
 		String pw1 = request.getParameter("pw1");
 		String nick1 = request.getParameter("nick1");
@@ -44,9 +38,6 @@ public class ClientLoginInsert implements ClientImpl {
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		
-		
 		
 		
 	}
