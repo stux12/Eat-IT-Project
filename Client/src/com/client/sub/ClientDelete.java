@@ -20,10 +20,7 @@ public class ClientDelete implements ClientImpl {
 		String id1 = request.getParameter("id1");
 		
 		DAO dao1 = new DAO();
-		boolean sucess = dao1.Client_Delete(id1);
-		if(sucess) {
-			
-		}
+		dao1.Client_Delete(id1);
 		
 		ServletContext app = request.getServletContext();
 		app.removeAttribute("id1");

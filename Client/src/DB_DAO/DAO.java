@@ -127,11 +127,11 @@ public class DAO {
 	}
 
 	// 아이디찾기
-	public VO Client_OneJoinId(String id1, String tel1) throws SQLException {
+	public VO Client_OneJoinId(String irum1, String tel1) throws SQLException {
 		VO vo1 = null;
 		String sql = "SELECT ID FROM CLIENT WHERE NAME=? AND PHONENUMBER=?";
 		pstmt = con.prepareStatement(sql);
-		pstmt.setString(1, id1);
+		pstmt.setString(1, irum1);
 		pstmt.setString(2, tel1);
 		rs = pstmt.executeQuery();
 		if (rs.next()) {

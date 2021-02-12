@@ -7,21 +7,13 @@
 <title>Insert title here</title>
 
 <!-- 메뉴바 -->
-<link href="../CSS/Style.css" rel="stylesheet" type="text/css">
+<link href="/Client/CSS/Style_Client.css?after" rel="stylesheet" type="text/css">
 
 <!-- section -->
 <style>
-.Logo img{
-	width: 100px;
-	height: 75px;
-	margin-left: -8px;
-	margin-top: -1px;
-}
-
 .Login_Logo img {
 	width: 400px;
 	height: 300px;
-	margin-top: -85px;
 	margin-bottom: -100px;
 }
 
@@ -100,8 +92,8 @@ footer {
 	<!-- 상단부분 -->
 	<header>
 		<div class="menubar">
-			<div class="Logo">
-				<a href="/Client/MainPage.jsp"><img src="img/EATit.png" alt="로고 이미지 크게 들어올곳" /></a>
+			<div class="logo">
+				<a href="/Client/MainPage.jsp"></a>
 			</div>
 		</div>
 	</header>
@@ -110,7 +102,7 @@ footer {
 
 	<!-- 중간부분 -->
 	<div class="Login_Logo">
-		<img src="img/EATit.png" alt="로고 이미지 크게 들어올곳" />
+		<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FQvMBl%2FbtqWU73BhKO%2F5wu0ncSqNIH9pLpQ6A4Pm1%2Fimg.png" alt="로고 이미지 크게 들어올곳" />
 	</div>
 	<section>
 	<form method="post" name="Form">
@@ -123,7 +115,7 @@ footer {
 				<td class="Id1"><input type="text" value="${vo1.id}" name="id1" readonly /></td>
 			<tr>
 				<td class="Pw">패스워드</td>
-				<td class="Pw1"><input type="password" value="${vo1.pw}" name="pw1" maxlength="50" 
+				<td class="Pw1"><input type="password" value="${vo1.pw}" name="pw1" maxlength="50" required
 								pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{6,}$" title="8자이상 하나의 문자 숫자 특수기호를 포함해야합니다"/></td>
 			</tr>
 			<tr>
@@ -133,14 +125,14 @@ footer {
 			<tr>
 				<td class="Irum">이름</td>
 				<td class="Irum1"><input type="text" value="${vo1.name}" name="name1" maxlength="30"
-				pattern="^([a-zA-Z가-힣]){0,30}$" title="특수기호 숫자는 불가능합니다."/></td>
+				pattern="^([a-zA-Z가-힣]){0,30}$" title="특수기호 숫자는 불가능합니다." required/> </td>
 			</tr>
 			<tr>
 				<td class="Tel">전화번호</td>
 				<td class="Tel1">
 					<input type="tel" value="010" name="phone1" readonly />-
-					<input type='tel' value="${vo1.phone2}" name='phone2' pattern="^([0-9]){4,4}$" maxlength="4" title="숫자만 가능합니다." />-
-					<input type='tel' value="${vo1.phone3}" name='phone3' pattern="^([0-9]){4,4}$" maxlength="4" title="숫자만 가능합니다."/>
+					<input type='tel' value="${vo1.phone2}" name='phone2' pattern="^([0-9]){4,4}$" maxlength="4" title="숫자만 가능합니다." required/>-
+					<input type='tel' value="${vo1.phone3}" name='phone3' pattern="^([0-9]){4,4}$" maxlength="4" title="숫자만 가능합니다." required/>
 				</td>
 			</tr>
 		</table>	

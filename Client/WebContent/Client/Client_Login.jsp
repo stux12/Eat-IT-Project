@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 
 <!-- 메뉴바 -->
-<link href="../CSS/Style.css" rel="stylesheet" type="text/css">
+<link href="/Client/CSS/Style_Client.css?after" rel="stylesheet" type="text/css">
 
 <!-- section -->
 <style>
@@ -60,7 +60,7 @@ footer {
 <!-- script -->
 <script>
 	function Button1_Click() {
-		location.href='../Client/Client_Insert.jsp'
+		location.href='/Client/Client/Client_Insert.jsp';
 	}
 </script>
 </head>
@@ -70,7 +70,7 @@ footer {
 	<header>
 		<div class="menubar">
 			<div class="logo">
-				<a href="../MainPage.jsp"></a>
+				<a href="/Client/MainPage.jsp"></a>
 			</div>
 		</div>
 	</header>
@@ -78,7 +78,7 @@ footer {
 	<!-- 중간부분 -->
 	<section>
 		<div class="Login_Logo">
-			<img src="../img/EATit.png" alt="로고 이미지 크게 들어올곳" />
+			<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FQvMBl%2FbtqWU73BhKO%2F5wu0ncSqNIH9pLpQ6A4Pm1%2Fimg.png" alt="로고 이미지 크게 들어올곳" />
 		</div>
 		<hr class="Line">
 		<form action="LoginCheck.do" method="post">
@@ -91,10 +91,10 @@ footer {
 				<input type="button" value="회원가입" onclick="Button1_Click()" />
 			</div>
 			<div class="Id_Join">
-				<a href="../Client/Client_Id.jsp">EAT iT 아이디를 잃어버리셨나요??</a>
+				<a href="/Client/Client/Client_Id.jsp">EAT iT 아이디를 잃어버리셨나요??</a>
 			</div>
 			<div class="PassWord_Join">
-				<a href="../Client/Client_Password.jsp">아니면 EAT iT 암호를 잃어버리셨나요??</a>
+				<a href="/Client/Client/Client_Password.jsp">아니면 EAT iT 암호를 잃어버리셨나요??</a>
 			</div>
 		</form>
 	</section>

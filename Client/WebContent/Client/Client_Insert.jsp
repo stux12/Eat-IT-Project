@@ -10,7 +10,7 @@
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 
 <!-- 메뉴바 -->
-<link href="../CSS/Style.css" rel="stylesheet" type="text/css">
+<link href="/Client/CSS/Style_Client.css?after" rel="stylesheet" type="text/css">
 
 <!-- section -->
 <style>
@@ -123,7 +123,7 @@ footer {
 	<header>
 		<div class="menubar">
 			<div class="logo">
-				<a href="../MainPage.jsp"></a>
+				<a href="/Client/MainPage.jsp"></a>
 			</div>
 		</div>
 	</header>
@@ -131,7 +131,7 @@ footer {
 	<!-- 중간부분 -->
 	<section>
 		<div class="Login_Logo">
-			<img src="../img/EATit.png" alt="로고 이미지 크게 들어올곳" />
+			<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FQvMBl%2FbtqWU73BhKO%2F5wu0ncSqNIH9pLpQ6A4Pm1%2Fimg.png" alt="로고 이미지 크게 들어올곳" />
 		</div>
 		<form method="post" name="Form">
 			<table class="Table1">
@@ -142,18 +142,18 @@ footer {
 				<tr>
 					<td class="Id">아이디</td>
 					<td class="Id1"><input type="text" name="id1" id="id1" maxlength="12"
-									pattern="^([a-z0-9]){6,12}$" title="영문소문자, 숫자포함 6자리이상 필요합니다"/> </td>
+									pattern="^([a-z0-9]){6,12}$" title="영문소문자, 숫자포함 6자리이상 필요합니다" required/> </td>
 					<td><input type="button" value="중복확인" onclick="Button1_Click('IdCheck');"/></td>
 				</tr>
 				<tr>
 					<td class="Pw">비밀번호</td>
 					<td class="Pw1"><input type="password" name="pw1" id="pwc1" maxlength="30"
-									pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,30}$" title="8자이상 하나의 문자 숫자 특수기호를 포함해야합니다"/> </td>
+									pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,30}$" title="8자이상 하나의 문자 숫자 특수기호를 포함해야합니다" required/> </td>
 				</tr>
 				<tr>
 					<td class="PwCheck">비밀번호확인</td>
 					<td class="PwCheck1"><input type="password" name="pw2" id=pwc2 maxlength="30"
-										pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,30}$" title="8자이상 하나의 문자 숫자 특수기호를 포함해야합니다"/></td>
+										pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,30}$" title="8자이상 하나의 문자 숫자 특수기호를 포함해야합니다" required/></td>
 				</tr>
 				<tr>
 					<td class="Nick">닉네임</td>
@@ -162,14 +162,14 @@ footer {
 				<tr>
 					<td class="Irum">이름</td>
 					<td class="Irum1"><input type="text" name="irum1" maxlength="30"
-									pattern="^([a-zA-Z가-힣]){0,30}$" title="특수기호 숫자는 불가능합니다."/> </td>
+									pattern="^([a-zA-Z가-힣]){0,30}$" title="특수기호 숫자는 불가능합니다." requiredrequired/> </td>
 				</tr>
 				<tr>
 					<td class="Tel">전화번호</td>
 					<td class="Tel1">
 						<input type='tel' name='phone1' value="010" readonly/>-
-						<input type='tel' name='phone2'  pattern="^([0-9]){4,4}$" maxlength="4" title="숫자만 가능합니다." />- 
-						<input type='tel' name='phone3'  pattern="^([0-9]){4,4}$" maxlength="4" title="숫자만 가능합니다." />
+						<input type='tel' name='phone2'  pattern="^([0-9]){4,4}$" maxlength="4" title="숫자만 가능합니다." required />- 
+						<input type='tel' name='phone3'  pattern="^([0-9]){4,4}$" maxlength="4" title="숫자만 가능합니다." required />
 					</td>
 				</tr>
 				<tr>

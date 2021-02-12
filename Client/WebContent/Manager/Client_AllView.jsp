@@ -7,20 +7,12 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-<link href="../CSS/Style.css" rel="stylesheet" type="text/css">
+<link href="/Client/CSS/Style_Client.css?after" rel="stylesheet" type="text/css">
 
 <style>
-.Logo img{
-	width: 100px;
-	height: 75px;
-	margin-left: -8px;
-	margin-top: -1px;
-}
-
 .Login_Logo img {
 	width: 400px;
 	height: 300px;
-	margin-top: -85px;
 	margin-bottom: -100px;
 }
 
@@ -82,8 +74,8 @@ footer {
 	<!-- 상단부분 -->
 	<header>
 		<div class="menubar">
-			<div class="Logo">
-				<a href="/Client/MainPage.jsp"><img src="img/EATit.png" alt="로고 이미지 크게 들어올곳" /></a>
+			<div class="logo">
+				<a href="/Client/MainPage.jsp"></a>
 			</div>
 		</div>
 	</header>
@@ -93,7 +85,7 @@ footer {
 	<!-- 중간부분 -->
 	<section>
 		<div class="Login_Logo">
-			<img src="img/EATit.png" alt="로고 이미지 크게 들어올곳" />
+			<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FQvMBl%2FbtqWU73BhKO%2F5wu0ncSqNIH9pLpQ6A4Pm1%2Fimg.png" alt="로고 이미지 크게 들어올곳" />
 		</div>
 		<table class="Table1">
 			<tr>

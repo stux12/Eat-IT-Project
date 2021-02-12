@@ -30,14 +30,13 @@ public class ClientFindId implements ClientImpl {
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter writer = response.getWriter();
 			writer.println(
-					"<script>alert('해당하는 정보가 없습니다.'); location.href='" + "../Client/Client_Id.jsp" + "';</script>");
+					"<script>alert('해당하는 정보가 없습니다.'); location.href='" + "/Client/Client/Client_Id.jsp" + "';</script>");
 			writer.close();
 		}
 	
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter writer = response.getWriter();
-			writer.println("<script>alert('" + id1 + "'); location.href='" + "/Client/Client/Client_Login.jsp"
-					+ "';</script>");
+			writer.println("<script>alert('" + id1 + "'); location.href='" + "/Client/Client/Client_Login.jsp" + "';</script>");
 			writer.close();
 		
 	}

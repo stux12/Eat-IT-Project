@@ -32,7 +32,7 @@ public class ClientFindPw implements ClientImpl {
 		}catch (Exception e) {
 			response.setContentType("text/html; charset=UTF-8"); 
 			PrintWriter writer = response.getWriter(); 
-			writer.println("<script>alert('해당하는 정보가 없습니다.'); location.href='"+"../Client/Client_Pw.jsp"+"';</script>"); 
+			writer.println("<script>alert('해당하는 정보가 없습니다.'); location.href='"+"/Client/Client/Client_Pw.jsp"+"';</script>"); 
 			writer.close();
 		}
 		

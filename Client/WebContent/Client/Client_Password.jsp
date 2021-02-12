@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <!-- 메뉴바 -->
-<link href="../CSS/Style.css" rel="stylesheet" type="text/css">
+<link href="/Client/CSS/Style_Client.css?after" rel="stylesheet" type="text/css">
 
 <!-- section -->
 <style>
@@ -75,7 +75,7 @@ footer {
 <!-- script -->
 <script>
 	function Button1_Click() {
-		location.href='../Client/Client_Login.jsp';
+		location.href='/Client/Client/Client_Login.jsp';
 	}
 </script>
 </head>
@@ -85,7 +85,7 @@ footer {
 	<header>
 		<div class="menubar">
 			<div class="logo">
-				<a href="../MainPage.jsp"></a>
+				<a href="/Client/MainPage.jsp"></a>
 			</div>
 		</div>
 	</header>
@@ -93,7 +93,7 @@ footer {
 	<!-- 중간부분 -->
 	<section>
 		<div class="Login_Logo">
-			<img src="../img/EATit.png" alt="로고 이미지 크게 들어올곳" />
+			<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FQvMBl%2FbtqWU73BhKO%2F5wu0ncSqNIH9pLpQ6A4Pm1%2Fimg.png" alt="로고 이미지 크게 들어올곳" />
 		</div>
 		<form action="ClientFindPw.do" method="get">
 			<table class="Table1">
@@ -112,8 +112,8 @@ footer {
 					<td class="Tel">전화번호</td>
 					<td class="Tel1">
 						<input type='tel' name='phone1' value="010" required readonly/>-
-						<input type='tel' name='phone2' required/>- 
-						<input type='tel' name='phone3' required/>
+						<input type='tel' name='phone2' required maxlength="4"/>- 
+						<input type='tel' name='phone3' required maxlength="4"/>
 					</td>
 				</tr>
 			</table>
