@@ -1,15 +1,19 @@
 package com.client.main;
 
 import java.io.IOException;
+
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import com.client.sub.ClientAllView;
 import com.client.sub.ClientDelete;
 import com.client.sub.ClientDeleteManager;
+import com.client.sub.ClientDibsListDelete;
+import com.client.sub.ClientDibsListView;
 import com.client.sub.ClientFindId;
 import com.client.sub.ClientFindPw;
 import com.client.sub.ClientImpl;
@@ -137,6 +141,25 @@ public class ClientFrontController extends HttpServlet {
 			break;
 			
 			
+		//찜목록 보기
+		case "/ClientDibsListView.do":
+			h1 = new ClientDibsListView();
+			try {
+				h1.execute(request, response);
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
+			break;
+			
+		//찜목록 삭제
+		case "/ClientDibsListDelete.do":
+			h1 = new ClientDibsListDelete();
+			try {
+				h1.execute(request, response);
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
+			break;
 			
 		default:
 			response.sendRedirect("ErrorPage.jsp");

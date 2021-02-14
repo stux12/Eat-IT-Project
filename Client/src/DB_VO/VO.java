@@ -11,8 +11,7 @@ public class VO {
 	private String phone3;
 	private Date d;
 
-	
-	
+
 	
 	public VO(String IdPw) {
 		this.id = IdPw;

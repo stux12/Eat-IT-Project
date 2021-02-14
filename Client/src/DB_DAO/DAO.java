@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import DB_CONN.CONN;
+import DB_VO.DibsVO;
 import DB_VO.VO;
 
 public class DAO {
@@ -194,4 +195,76 @@ public class DAO {
 		}
 		return true;
 	}
+	
+	
+	// 찜목록에 넣기
+	public boolean Client_DibsListInsert(String id1, String mutual1, String likes1) {
+		String sql = "INSERT INTO EAT_IT_LIKE VALUES(?,?,?)";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id1);
+			pstmt.setString(2, mutual1);
+			pstmt.setString(3, likes1);
+			pstmt.executeUpdate();
+			System.out.println("왔니?");
+		} catch (SQLException e) {
+			System.out.println("insert Exception");
+			return false;
+		}
+		return true;
+	}
+	
+	//찜목록에 이미 있는지 확인
+	public boolean Client_OverlapCheck(String id1, String mutual1, String likes1) {
+		String sql = "SELECT * FROM EAT_IT_LIKE WHERE ID=? AND MUTUAL=? AND LIKES=?";
+		boolean check = false;
+		try {
+		pstmt = con.prepareStatement(sql);
+		pstmt.setString(1, id1);
+		pstmt.setString(2, mutual1);
+		pstmt.setString(3, likes1);
+		rs = pstmt.executeQuery();
+		if (rs.next()) {
+			check = true;
+		} else {
+			check = false;
+		}
+		}catch (Exception e) {
+			System.out.println("Join Error");
+		}
+		return check;
+	}
+	
+	
+	//찜목록에 있는걸 보기
+	public ArrayList<DibsVO> Client_DibsListJoin(String id1) throws SQLException{
+		ArrayList<DibsVO> array = new ArrayList<DibsVO>();
+		String sql = "SELECT MUTUAL FROM EAT_IT_LIKE WHERE ID=?";
+		pstmt = con.prepareStatement(sql);
+		pstmt.setString(1, id1);
+		rs = pstmt.executeQuery();
+		while(rs.next()) {
+			String mutual = rs.getString(1);
+			DibsVO vo1 = new DibsVO(mutual);
+			array.add(vo1);
+		}
+		return array;
+	}
+	
+	//찜목록에 있는거 삭제
+	public void Client_DibsListDelete(String id1, String mutual1) {
+		String sql = "DELETE FROM EAT_IT_LIKE WHERE ID=? AND MUTUAL=?";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id1);
+			pstmt.setString(2, mutual1);
+			pstmt.executeUpdate();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+
+	
 }
+
