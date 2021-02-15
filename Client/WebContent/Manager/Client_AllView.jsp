@@ -89,17 +89,25 @@ footer {
 		</div>
 		<table class="Table1">
 			<tr>
-				<td class="Join" colspan="2"><h3>EAT iT 정보 전체조회</h3></td>
+				<td class="Join" colspan="4"><h3>EAT iT 정보 전체조회</h3></td>
 			</tr>
 			<tr>
+				<td class="Count">NO.</td>
 				<td class="Id">아이디</td>
 				<td class="irum">이름</td>
+				<td class="out">BAN</td>
 			</tr>
 			<c:forEach var="i" items="${alist1}">
+			<c:set var="count" value="1"/>
 				<tr>
-					<td class="Id1"><a href="ClientDeleteManager.do?id1=${i.id}">${i.id}</a></td>
+					<td class="Count1">${count}.</td>
+					<td class="Id1">${i.id}</td>
 					<td class="Irum1">${i.name}</td>
+					<td class="Button">
+						<input type="button" value="BAN" onclick="location.href='ClientDeleteManager.do?id1=${i.id}'"/>	
+					</td>
 				</tr>
+			<c:set var="count" value="${count + 1}" />
 			</c:forEach>
 				<tr>
 				</tr>
