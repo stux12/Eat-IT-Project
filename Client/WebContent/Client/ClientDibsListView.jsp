@@ -15,6 +15,7 @@
 	
 		<c:forEach var="i" items="${alist1}">
 			<tr>
+				<td><img src="${i.img}" alt="" /></td>
 				<td>${i.mutual}</td>
 				<td>
 					<form action="ClientDibsListDelete.do">

@@ -239,13 +239,14 @@ public class DAO {
 	//찜목록에 있는걸 보기
 	public ArrayList<DibsVO> Client_DibsListJoin(String id1) throws SQLException{
 		ArrayList<DibsVO> array = new ArrayList<DibsVO>();
-		String sql = "SELECT MUTUAL FROM EAT_IT_LIKE WHERE ID=?";
+		String sql = "SELECT DISTINCT L.MUTUAL, M.FIRSTIMG FROM EAT_IT_LIKE L, EAT_IT_MUTUALIMG M WHERE ID=? AND L.MUTUAL = M.MUTUAL";
 		pstmt = con.prepareStatement(sql);
 		pstmt.setString(1, id1);
 		rs = pstmt.executeQuery();
 		while(rs.next()) {
 			String mutual = rs.getString(1);
-			DibsVO vo1 = new DibsVO(mutual);
+			String img = rs.getString(2);
+			DibsVO vo1 = new DibsVO(mutual, img);
 			array.add(vo1);
 		}
 		return array;
