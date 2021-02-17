@@ -16,6 +16,7 @@ import com.client.sub.ClientDibsListDelete;
 import com.client.sub.ClientDibsListView;
 import com.client.sub.ClientFindId;
 import com.client.sub.ClientFindPw;
+import com.client.sub.ClientIdCheck;
 import com.client.sub.ClientImpl;
 import com.client.sub.ClientLoginCheck;
 import com.client.sub.ClientLoginInsert;
@@ -36,6 +37,7 @@ public class ClientFrontController extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
     	response.setCharacterEncoding("UTF-8");
     	
+    	
     	//경로가 어떻게 되는지 확인 개 햇갈림
     	String url = request.getRequestURI().substring(request.getContextPath().length());
     	System.out.println(url);
@@ -54,10 +56,11 @@ public class ClientFrontController extends HttpServlet {
 			break;
 			
 		//로그아웃
+		case "/Client/LogOut.do":
 		case "/LogOut.do":
 			app = request.getServletContext();
 			app.removeAttribute("id1");
-			response.sendRedirect("/Client/MainPage.jsp");
+			response.sendRedirect("/EAT-iT/main.jsp");
 			break;
 			
 		//회원가입
@@ -69,7 +72,15 @@ public class ClientFrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 			break;
-			
+		//ID 중복체크
+		case "/Client/IdCheck.do":
+			h1 = new ClientIdCheck();
+			try {
+				h1.execute(request, response);
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
+			break;
 		//회원id찾기
 		case "/Client/ClientFindId.do" :
 			h1 = new ClientFindId();
@@ -91,7 +102,8 @@ public class ClientFrontController extends HttpServlet {
 			break;
 			
 		//회원정보보기
-		case "/ClientOneView.do" :
+		case "/Client/ClientOneView.do" :
+		case "/ClientOneView.do":
 			h1 = new ClientOneView();
 			try {
 				h1.execute(request, response);
@@ -142,6 +154,7 @@ public class ClientFrontController extends HttpServlet {
 			
 			
 		//찜목록 보기
+		case "/Client/ClientDibsListView.do":
 		case "/ClientDibsListView.do":
 			h1 = new ClientDibsListView();
 			try {

@@ -1,35 +1,23 @@
 package DB_VO;
 
-import java.util.Date;
+import java.sql.Date;
 
-public class VO {
+public class MemberVO {
 	private String id;
 	private String pw;
 	private String nick;
 	private String name;
+	private String tel;
 	private String phone2;
 	private String phone3;
 	private Date d;
 
+	public MemberVO() {
 
-	
-	public VO(String IdPw) {
-		this.id = IdPw;
-		this.pw = IdPw;
 	}
 
-	
-	public VO(String id, String name) {
-		this.id = id;
-		this.name = name;
-	}
-
-
-
-
-
-
-	public VO(String id, String pw, String nick, String name, String phone2,String phone3, Date d) {
+	// 관리자의 회원 정보 1인 or 전체 조회
+	public MemberVO(String id, String pw, String nick, String name, String phone2, String phone3, Date d) {
 		this.id = id;
 		this.pw = pw;
 		this.nick = nick;
@@ -39,31 +27,16 @@ public class VO {
 		this.d = d;
 	}
 
-	
-	
-	public String getPhone2() {
-		return phone2;
+	// ID&비밀번호 찾기용 VO
+	public MemberVO(String idpw) {
+		this.id = idpw;
+		this.pw = idpw;
 	}
 
-
-
-	public void setPhone2(String phone2) {
-		this.phone2 = phone2;
+	public MemberVO(String id2, String name2) {
+		this.id = id2;
+		this.name = name2;
 	}
-
-
-
-	public String getPhone3() {
-		return phone3;
-	}
-
-
-
-	public void setPhone3(String phone3) {
-		this.phone3 = phone3;
-	}
-
-
 
 	public String getId() {
 		return id;
@@ -97,6 +70,30 @@ public class VO {
 		this.name = name;
 	}
 
+	public String getTel() {
+		return tel;
+	}
+
+	public void setTel(String tel) {
+		this.tel = tel;
+	}
+
+	public String getPhone2() {
+		return phone2;
+	}
+
+	public void setPhone2(String phone2) {
+		this.phone2 = phone2;
+	}
+
+	public String getPhone3() {
+		return phone3;
+	}
+
+	public void setPhone3(String phone3) {
+		this.phone3 = phone3;
+	}
+
 	public Date getD() {
 		return d;
 	}
@@ -104,8 +101,4 @@ public class VO {
 	public void setD(Date d) {
 		this.d = d;
 	}
-
-	public VO() {
-	}
-
 }

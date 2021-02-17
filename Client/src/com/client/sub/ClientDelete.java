@@ -27,7 +27,7 @@ public class ClientDelete implements ClientImpl {
 		
 		response.setContentType("text/html; charset=UTF-8"); 
 		PrintWriter writer = response.getWriter(); 
-		writer.println("<script>alert('회원탈퇴 되셨습니다..'); location.href='"+"/Client/MainPage.jsp"+"';</script>"); 
+		writer.println("<script>alert('회원탈퇴 되셨습니다..'); location.href='"+"/EAT-iT/main.jsp"+"';</script>"); 
 		writer.close();
 		
 		

@@ -5,7 +5,7 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import DB_DAO.DAO;
-import DB_VO.VO;
+import DB_VO.MemberVO;
 
 public class ClientAllView implements ClientImpl {
 
@@ -16,7 +16,7 @@ public class ClientAllView implements ClientImpl {
 		response.setCharacterEncoding("UTF-8");
 		
 		DAO dao1 = new DAO();
-		ArrayList<VO> alist1 = dao1.Manager_AllView();
+		ArrayList<MemberVO> alist1 = dao1.Client_AllView();
 		request.setAttribute("alist1", alist1);
 		
 		RequestDispatcher rd1 = request.getRequestDispatcher("Manager/Client_AllView.jsp");

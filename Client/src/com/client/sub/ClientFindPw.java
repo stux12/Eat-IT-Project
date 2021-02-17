@@ -4,7 +4,7 @@ import java.io.PrintWriter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import DB_DAO.DAO;
-import DB_VO.VO;
+import DB_VO.MemberVO;
 
 public class ClientFindPw implements ClientImpl {
 
@@ -22,7 +22,7 @@ public class ClientFindPw implements ClientImpl {
 		String tel1 = phone1+"-"+phone2+"-"+phone3;
 		
 		DAO dao1 = null;
-		VO vo1 = null;
+		MemberVO vo1 = null;
 		String pw1 = "";
 		
 		try {
@@ -32,13 +32,13 @@ public class ClientFindPw implements ClientImpl {
 		}catch (Exception e) {
 			response.setContentType("text/html; charset=UTF-8"); 
 			PrintWriter writer = response.getWriter(); 
-			writer.println("<script>alert('해당하는 정보가 없습니다.'); location.href='"+"/Client/Client/Client_Pw.jsp"+"';</script>"); 
+			writer.println("<script>alert('해당하는 정보가 없습니다.'); location.href='"+"/EAT-iT/Client/Client_Password.jsp"+"';</script>"); 
 			writer.close();
 		}
 		
 		response.setContentType("text/html; charset=UTF-8"); 
 		PrintWriter writer = response.getWriter(); 
-		writer.println("<script>alert('"+pw1+"'); location.href='"+"/Client/Client/Client_Login.jsp"+"';</script>"); 
+		writer.println("<script>alert('"+pw1+"'); location.href='"+"/EAT-iT/Client/Client_Login.jsp"+"';</script>"); 
 		writer.close();
 		
 	}

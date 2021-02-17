@@ -1,6 +1,5 @@
 package com.client.sub;
 
-import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
@@ -10,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import DB_DAO.DAO;
 import DB_VO.DibsVO;
-import DB_VO.VO;
 
 public class ClientDibsListDelete implements ClientImpl {
 

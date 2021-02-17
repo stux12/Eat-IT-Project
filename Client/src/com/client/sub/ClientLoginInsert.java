@@ -27,12 +27,12 @@ public class ClientLoginInsert implements ClientImpl {
 			if(sucess) {
 				response.setContentType("text/html; charset=UTF-8"); 
 				PrintWriter writer = response.getWriter(); 
-				writer.println("<script>alert('회원가입이 완료되었습니다.'); location.href='"+"/Client/Client/Client_Login.jsp"+"';</script>"); 
+				writer.println("<script>alert('회원가입이 완료되었습니다.'); location.href='"+"/EAT-iT/Client/Client_Login.jsp"+"';</script>"); 
 				writer.close();
 			}else {
 				response.setContentType("text/html; charset=UTF-8"); 
 				PrintWriter writer = response.getWriter(); 
-				writer.println("<script>alert('회원가입에 실패하였습니다.'); location.href='"+"/Client/Client/Client_Insert.jsp"+"';</script>"); 
+				writer.println("<script>alert('회원가입에 실패하였습니다.'); location.href='"+"/EAT-iT/Client/Client_Insert.jsp"+"';</script>"); 
 				writer.close();
 			}
 		}catch (Exception e) {

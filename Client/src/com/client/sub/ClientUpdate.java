@@ -25,14 +25,11 @@ public class ClientUpdate implements ClientImpl {
 		
 		DAO dao1 = new DAO();
 		
-		boolean sucess = dao1.Client_Update(pw1, nick1, name1, tel1, id1);
-		
-		if(sucess) {
-		}
+		dao1.Client_Update(pw1, nick1, name1, tel1, id1);
 		
 		response.setContentType("text/html; charset=UTF-8"); 
 		PrintWriter writer = response.getWriter(); 
-		writer.println("<script>alert('회원수정 되셨습니다..'); location.href='"+"/Client/MainPage.jsp"+"';</script>"); 
+		writer.println("<script>alert('회원수정 되셨습니다..'); location.href='"+"/EAT-iT/main.jsp"+"';</script>"); 
 		writer.close();
 		
 	}

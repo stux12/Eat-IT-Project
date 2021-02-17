@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import DB_DAO.DAO;
-import DB_VO.VO;
+import DB_VO.MemberVO;
 
 public class ClientOneView implements ClientImpl {
 
@@ -21,7 +21,7 @@ public class ClientOneView implements ClientImpl {
 		String id1 = (String)app.getAttribute("id1");
 
 		DAO dao1 = new DAO();
-		VO vo1 = dao1.Client_OneJoin(id1);
+		MemberVO vo1 = dao1.Client_OneJoin(id1);
 		
 		request.setAttribute("vo1", vo1);
 		RequestDispatcher rd1 = request.getRequestDispatcher("Client/Client_OneView.jsp");
