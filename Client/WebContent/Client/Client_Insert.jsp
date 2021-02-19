@@ -35,7 +35,6 @@
 
 .Table1 td {
 	padding: 5px;
-
 }
 
 .Insert {
@@ -66,7 +65,6 @@
 	color: red;
 	font-size: 10px;
 }
-
 
 .Text {
 	font-size: 20px;
@@ -122,7 +120,7 @@
 				</tr>
 				<tr>
 					<td></td>
-					<td id="IdChecked" ></td>
+					<td id="IdChecked"></td>
 				</tr>
 				<tr>
 					<td class="Pw">비밀번호</td>
@@ -140,7 +138,7 @@
 				</tr>
 				<tr>
 					<td></td>
-					<td id="PwChecked" ></td>
+					<td id="PwChecked"></td>
 				</tr>
 				<tr>
 					<td class="Nick">닉네임</td>
@@ -184,21 +182,26 @@
 
 <!-- script -->
 <script>
-
 	function IdCheck() {
+		console.log("?");
 		var userID = $('#id1').val();
-		if(userID.length<6){
-			$('#IdChecked').html('<p class="IdChecked">영문소문자 숫자포함 6자이내 입력하세요</p>');
-		}else{
+		if (userID.length < 6) {
+			$('#IdChecked').html(
+					'<p class="IdChecked">영문소문자 숫자포함 6자이내 입력하세요</p>');
+		} else {
 			$.ajax({
-				type:'POST',
-				url: './IdCheck.do',
-				data:{userID: userID},
-				success : function (result) {
-					if(result==1){
-						$('#IdChecked').html('<p class="IdChecked">사용할 수 있는 아이디 입니다.</p>');
-					}else{
-						$('#IdChecked').html('<p class="IdChecked">이미 사용중인 아이디 입니다.</p>');
+				type : 'POST',
+				url : './IdCheck.do',
+				data : {
+					userID : userID
+				},
+				success : function(result) {
+					if (result == 1) {
+						$('#IdChecked').html(
+								'<p class="IdChecked">사용할 수 있는 아이디 입니다.</p>');
+					} else if(result == 0) {
+						$('#IdChecked').html(
+								'<p class="IdChecked">이미 사용중인 아이디 입니다.</p>');
 					}
 				}
 			});
