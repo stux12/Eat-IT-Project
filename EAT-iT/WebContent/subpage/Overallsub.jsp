@@ -6,14 +6,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="shortcut icon" href="https://blog.kakaocdn.net/dn/k3HEx/btqXXkUK7Mn/C3fJjMv7RIoFzVxa3W9MU1/favicon%20%282%29.ico?attach=1&knm=tfile.ico">
+<link rel="shortcut icon"
+	href="https://blog.kakaocdn.net/dn/k3HEx/btqXXkUK7Mn/C3fJjMv7RIoFzVxa3W9MU1/favicon%20%282%29.ico?attach=1&knm=tfile.ico">
 <title>EAT iT - 검색한 결과 맛집 추천</title>
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <%-- 메뉴바 스타일 --%>
 <style>
 /* 메뉴바 스타일 */
-
-
 .nav-rec {
 	width: 100%;
 	height: 250px;
@@ -101,13 +101,16 @@ hr {
 				
 			var id1 ='<%=application.getAttribute("id1")%>';
 				if (id1 == 'null') {
-					alert('로그인부터 해주세용~~');
+					Swal.fire('로그인후에 찜 등록을 하실 수 있습니다.');
 				} else {
 					// 가게정보를 mutual값으로 변경하면됨
 					url = "Client/Client_DibsListInsert.jsp?id1=" + id1
 							+ "&mutual1="+ str;							
-					window.open(url, "post", "width=500,height=300");
-				}
+					 width = 500;
+		             height = 280;
+		             popupX = (window.screen.width/2) - (width/2);
+				     popupY = (window.screen.height/2) - (height/2);
+		               window.open(url,"_blank", "width="+width+", height="+height+",left="+popupX+",top="+popupY);}
 			}
 		}
 	</script>
@@ -117,7 +120,8 @@ hr {
 	<nav>
 		<div class="nav-rec">
 			<div class="nav-text">
-				<h1 class="location" align="center">내가 검색한 맛집</h1><br><br>
+				<h1 class="location" align="center">내가 검색한 맛집</h1>
+				<br> <br>
 				<p class="location-sub" align="center">무슨 맛집이 있을까?</p>
 			</div>
 		</div>
@@ -129,8 +133,9 @@ hr {
 				<c:forEach var="vo2" items="${alist3}">
 					<table>
 						<tr>
-							<td rowspan=5><a href="detail.do?mutual=${vo2.mutual}"><img src="${vo2.firstimg}"
-								style="width: 300px; height: 250px; padding: 35px;"></a></td>
+							<td rowspan=5><a href="detail.do?mutual=${vo2.mutual}"><img
+									src="${vo2.firstimg}"
+									style="width: 300px; height: 250px; padding: 35px;"></a></td>
 							<td class="sangho">상호명: ${vo2.mutual}</td>
 
 						</tr>

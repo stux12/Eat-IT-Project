@@ -1,3 +1,5 @@
+<%@page import="javafx.scene.Parent"%>
+<%@page import="com.sun.java.swing.plaf.windows.resources.windows"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -5,19 +7,28 @@
 <head>
 <meta charset="UTF-8">
 <title>EAT iT - 로그인</title>
-<link rel="shortcut icon" href="https://blog.kakaocdn.net/dn/k3HEx/btqXXkUK7Mn/C3fJjMv7RIoFzVxa3W9MU1/favicon%20%282%29.ico?attach=1&knm=tfile.ico">
+<link rel="shortcut icon"
+	href="https://blog.kakaocdn.net/dn/k3HEx/btqXXkUK7Mn/C3fJjMv7RIoFzVxa3W9MU1/favicon%20%282%29.ico?attach=1&knm=tfile.ico">
 
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 
 
-<!-- 메뉴바 -->
-<link href="/EAT-iT/CSS/Style_Client.css?after" rel="stylesheet" type="text/css">
+
 
 <!-- section -->
 <style>
+* {
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+	text-decoration: none;
+	border-collapse: collapse;
+}
+
 .Login_Logo img {
 	width: 400px;
 	height: 300px;
+	margin-top: -70px;
 	margin-bottom: -100px;
 }
 
@@ -77,8 +88,6 @@
 .Table1 td {
 	padding: 8px;
 }
-
-
 </style>
 
 <!-- footer -->
@@ -86,16 +95,8 @@
 </head>
 
 
-<body>
 
-	<!-- 상단부분 -->
-	<header>
-		<div class="menubar">
-			<div class="logo">
-				<a href="/EAT-iT/main.jsp"></a>
-			</div>
-		</div>
-	</header>
+<body>
 
 	<!-- 중간부분 -->
 	<section>
@@ -108,15 +109,17 @@
 		<form name="User_Input" action="LoginCheck.do" method="post">
 			<table class="Table1">
 				<tr>
-					<td class="Login_Check" colspan="">
-							<%  
+					<td class="Login_Check" colspan="1">
+						<%
 							String check = (String) request.getAttribute("check");
-							if (check == "false") {	
-								%><pre class="Login_CheckColor"><%
-								out.print("해당 정보는 없는 정보입니다!! \n확인후 다시 로그인해주세요.");
-								%></pre>
-								<% } %>
-						</td>
+							if (check == "false") {
+						%><pre class="Login_CheckColor"><%out.print("해당 정보는 없는 정보입니다!! \n확인후 다시 로그인해주세요.");%></pre> 
+						<% }else if(check == "true") {
+							String go = (String)request.getAttribute("go");
+							out.print(go);
+						}
+						%>
+					</td>
 				</tr>
 				<tr class="Login_IdPw">
 					<td><input type="text" name="id1" id="id1"
@@ -136,12 +139,11 @@
 					<td><input type="button" value="로그인" onclick="Login();" /></td>
 				</tr>
 				<tr class="PassWord_Join">
-					<td><a href="/EAT-iT/Client/Client_Password.jsp">EAT iT
-							ID또는 암호를 잊어버리셨나요??</a></td>
+					<td><a href="#" onclick="PwJoin()">EAT iT ID또는 암호를
+							잊어버리셨나요??</a></td>
 				</tr>
 				<tr class="Clinet_Insert">
-					<td><a href="/EAT-iT/Client/Client_Insert.jsp">EAT iT ID가
-							아직 없으신가요??</a></td>
+					<td><a href="#" onclick="Insert()">EAT iT ID가 아직 없으신가요??</a></td>
 				</tr>
 			</table>
 		</form>
@@ -188,6 +190,29 @@
 			form.submit();
 		}
 	}
+	
+	function PwJoin() {
+		var width = 800;
+		var height = 600;
+		var popupX = (window.screen.width/2)-(width/2);
+		var popupY = (window.screen.height/2)-(height/2);
+		var width1 = 500;
+		var height1 = 280;
+		var popupX1 = (window.screen.width/2)-(width1/2);
+		var popupY1 = (window.screen.height/2)-(height1/2);
+		url = "Client_Password.jsp?popupX="+popupX1+"&popupY="+popupY1+"";
+		window.open(url,"_blank", "width="+width+", height="+height+",left="+popupX+",top="+popupY);
+	}
+	
+	function Insert() {
+		var width = 800;
+		var height = 600;
+		var popupX = (window.screen.width/2) - (width/2);
+		var popupY = (window.screen.height/2) - (height/2);
+		url = "Client_Insert.jsp";
+		window.open(url, "_blank", "width="+width+", height="+height+",left="+popupX+",top="+popupY);
+	}
+
 </script>
 </html>
 

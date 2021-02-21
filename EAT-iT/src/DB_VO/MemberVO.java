@@ -28,9 +28,10 @@ public class MemberVO {
 	}
 
 	// ID&비밀번호 찾기용 VO
-	public MemberVO(String idpw) {
-		this.id = idpw;
-		this.pw = idpw;
+	public MemberVO(String id1, String pw1, String name1) {
+		this.id = id1;
+		this.pw = pw1;
+		this.name = name1;
 	}
 
 	public MemberVO(String id2, String name2) {

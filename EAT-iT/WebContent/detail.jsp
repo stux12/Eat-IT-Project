@@ -8,8 +8,19 @@
 <title>EAT iT - 테마별 맛집 추천</title>
 <link rel="shortcut icon" href="https://blog.kakaocdn.net/dn/k3HEx/btqXXkUK7Mn/C3fJjMv7RIoFzVxa3W9MU1/favicon%20%282%29.ico?attach=1&knm=tfile.ico">
 <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ed569c66d15e26e2676b3d419b79379e"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 <link rel="stylesheet" type="text/css" href="CSS/Style_Detail.css?after">
 <script type="text/javascript">
+	// 로그인
+	function Login() {
+		width = 800;
+		height = 600;
+		popupX = (window.screen.width/2) - (width/2);
+		popupY = (window.screen.height/2) - (height/2);
+		
+		url = "Client/Client_Login.jsp";
+		window.open(url, "post", "width="+width+", height="+height+",left="+popupX+",top="+popupY);
+	}
 	// 지도 로드
 	window.onload = function() {
 		
@@ -39,8 +50,7 @@
 		var id1 ='<%= application.getAttribute("id1")%>';
 		
 		if(id1 == 'null') {
-			document.getElementById("textarea").setAttribute("disabled", true);
-			alert("로그인 후 리뷰를 등록할 수 있습니다.");
+			Swal.fire('로그인후 리뷰를 쓰실 수 있습니다.');
 		} else {}
 	}
 	
@@ -50,7 +60,7 @@
 		
 		if(id1 == 'null') {
 			document.getElementById("textarea").setAttribute("disabled", true);
-			alert("로그인 후 리뷰를 등록할 수 있습니다.");
+			Swal.fire('로그인후 리뷰를 등록 하실 수 있습니다.');
 		} else {
 			var form = document.getElementById("reviewForm");
 			form.action = "reviewRegister.do";
@@ -65,11 +75,15 @@
 			var id1 ='<%= application.getAttribute("id1")%>';
 			var mutual1 = '<c:out value="${vo.mutual}"/>';
 			if(id1=='null'){
-				alert('로그인 후 이용할 수 있습니다.');
+				Swal.fire('로그인후에 찜 등록을 하실 수 있습니다.');
 			}else{
 				// 가게정보를 mutual값으로 변경하면됨
-			 	url="Client/Client_DibsListInsert.jsp?id1="+id1+"&mutual1="+mutual1;
-				window.open(url,"post","width=500,height=300"); 
+	               width = 500;
+	               height = 280;
+	               popupX = (window.screen.width/2) - (width/2);
+				   popupY = (window.screen.height/2) - (height/2);
+			       url="Client/Client_DibsListInsert.jsp?id1="+id1+"&mutual1="+mutual1;
+	               window.open(url,"_blank", "width="+width+", height="+height+",left="+popupX+",top="+popupY);
 			}
 		}
 	}
@@ -121,7 +135,7 @@
 			<div id="restaurant_title">
 				<span class="title">${vo.mutual }</span>
 				<div id="restaurant_title_btn">
-						<a href="#reviewArea"><input id="reviewbtn" type="button" value="리뷰쓰기" onclick="reviewReg1()"></a>
+						<input id="reviewbtn" type="button" value="리뷰쓰기" onclick="reviewReg1()">
 					<form action="#" style="float:right; margin-left:10px">
 						<input id="jjimbtn" type="button" value="찜버튼" onclick="Button1_Click('JJim');">
 					</form>

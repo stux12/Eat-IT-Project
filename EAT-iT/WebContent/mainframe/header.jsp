@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,10 +21,10 @@
 	background-image:
 		url(https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FQvMBl%2FbtqWU73BhKO%2F5wu0ncSqNIH9pLpQ6A4Pm1%2Fimg.png);
 	background-size: cover;
-	width:5%;
+	width: 5%;
 }
 
-.logo a {	
+.logo a {
 	display: block;
 	width: 100%;
 	height: 60px;
@@ -34,12 +34,12 @@
 /*  ׸           õ  ޴    */
 .menubar {
 	position: fixed;
-	z-index:3;
+	z-index: 3;
 	display: flex;
 	width: 100%;
 	height: 60px;
-	border-bottom:1px solid gray;
-	background:white;
+	border-bottom: 1px solid gray;
+	background: white;
 }
 
 /*         ,  򸮽 Ʈ,  α   , ȸ        ޴    */
@@ -51,24 +51,28 @@
 /*  ޴               */
 .align-right {
 	margin-left: auto;
-	position:relative
+	position: relative
 }
+
 .header {
 	width: 100%;
 	height: 60px;
 	text-align: center;
 }
-span{
-	margin-left:-40px;
+
+span {
+	margin-left: -40px;
 }
-span img{
-		height:20px;
-		margin-left:-50px;
+
+span img {
+	height: 20px;
+	margin-left: -50px;
 }
+
 .search {
 	margin: auto;
 	width: 500px;
-	margin-left :20px;
+	margin-left: 20px;
 }
 
 /*  ׸           õ   Ӵٿ   ޴  */
@@ -77,14 +81,13 @@ span img{
 }
 
 .dropbtn {
-	color:black;
+	color: black;
 	background-color: transparent;
 	padding: 16px;
 	font-size: 1vw;
 	border: none;
 	cursor: pointer;
 	outline: 0;
-	
 }
 
 .dropdown-content {
@@ -94,7 +97,7 @@ span img{
 	min-width: 160px;
 	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 	z-index: 1;
-	border:1px;
+	border: 1px;
 }
 
 .dropdown-content a {
@@ -102,13 +105,12 @@ span img{
 	padding: 12px 16px;
 	text-decoration: none;
 	display: block;
-	background:#ffffff4a;
+	background: #ffffff4a;
 }
 
 .dropdown-content a:hover {
 	background-color: #ddd;
 }
-
 
 .dropdown:hover .dropbtn {
 	background-color: transparent;
@@ -119,22 +121,23 @@ span img{
 	border: solid 5px #3450b4;
 	font-weight: bold;
 	font-size: 14pt;
-	border-radius:20px;
+	border-radius: 20px;
 	color: white;
 	background-color: #3450b4;
 }
+
 .search_input {
 	padding: 5px;
 	width: 280px;
 	height: 35px;
-	border:0;
+	border: 0;
 	border-radius: 8px;
 	font-size: 14pt;
 }
-.search_input:focus{
-	outline:none;
-}
 
+.search_input:focus {
+	outline: none;
+}
 </style>
 
 <script>
@@ -154,17 +157,26 @@ span img{
 	}
 </script>
 <script>
-function fade() {
-	$('.dropdown-content').show(520);
-}
-function fadeo() {
-	$('.dropdown-content').hide(520);
-}
+	function Login() {
+		width = 800;
+		height = 600;
+		popupX = (window.screen.width/2) - (width/2);
+		popupY = (window.screen.height/2) - (height/2);
+		url = "Client/Client_Login.jsp";
+		window.open(url, "post", "width="+width+", height="+height+",left="+popupX+",top="+popupY);
+	}
+
+	function fade() {
+		$('.dropdown-content').show(520);
+	}
+	function fadeo() {
+		$('.dropdown-content').hide(520);
+	}
 </script>
 </head>
 <body>
 
-<header class="header">
+	<header class="header">
 		<div class="menubar">
 			<div class="logo">
 				<a href="main.jsp"></a>
@@ -203,14 +215,13 @@ function fadeo() {
 						<a href="ClientAllView.do"><button class="dropbtn">회원관리</button></a>
 					</c:if>
 					<c:if test="${(id1==null) ? true : false}">
-						<a href="/EAT-iT/Client/Client_Login.jsp"><button
-								class="dropbtn">로그인</button></a>
+						<button class="dropbtn" onclick="Login()">로그인</button>
 
 					</c:if>
 				</div>
 			</div>
 		</div>
-		
+
 	</header>
 </body>
 </html>

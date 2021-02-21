@@ -7,24 +7,38 @@
 <title>EAT iT - 회원가입</title>
 <link rel="shortcut icon" href="https://blog.kakaocdn.net/dn/k3HEx/btqXXkUK7Mn/C3fJjMv7RIoFzVxa3W9MU1/favicon%20%282%29.ico?attach=1&knm=tfile.ico">
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ed569c66d15e26e2676b3d419b79379e"></script>
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 
-<!-- 메뉴바 -->
-<link href="/EAT-iT/CSS/Style_Client.css?after" rel="stylesheet"
-	type="text/css">
 
 <!-- section -->
 <style>
+* {
+   margin:0px;
+   padding:0px;
+   list-style:none;
+   text-decoration:none;
+   border-collapse:collapse;
+}
+
 .Login_Logo {
 	text-align: center;
 	margin: 5px;
 	padding: 5px;
+	
 }
 
 .Login_Logo img {
 	width: 400px;
 	height: 300px;
+	margin-top: -70px;
+	margin-bottom: -100px;
+}
+
+.Login_Logo img {
+	width: 400px;
+	height: 300px;
+	margin-top: -70px;
 	margin-bottom: -100px;
 }
 
@@ -92,20 +106,10 @@
 </head>
 <body>
 
-	<!-- 상단부분 -->
-	<header>
-		<div class="menubar">
-			<div class="logo">
-				<a href="/EAT-iT/main.jsp"></a>
-			</div>
-		</div>
-	</header>
-
 	<!-- 중간부분 -->
 	<section>
 		<div class="Login_Logo">
-			<img
-				src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FQvMBl%2FbtqWU73BhKO%2F5wu0ncSqNIH9pLpQ6A4Pm1%2Fimg.png"
+			<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FQvMBl%2FbtqWU73BhKO%2F5wu0ncSqNIH9pLpQ6A4Pm1%2Fimg.png"
 				alt="로고 이미지 크게 들어올곳" />
 		</div>
 		<form method="post" name="Form">
@@ -227,16 +231,7 @@
 
 		}
 		if (str == "NoInsert") {
-			location.href = "/EAT-iT/Client/Client_Login.jsp";
-		}
-		if (str == "IdCheck") {
-			var id1 = document.getElementById('id1').value;
-			if (id1.match("^([a-z0-9]){6,12}$") != null) {
-				url = "Client_IdCheck.jsp?id1=" + id1;
-				window.open(url, "post", "width=500,height=300");
-			} else {
-				alert("영문소문자, 숫자포함 6자리이상 필요합니다");
-			}
+			window.close();
 		}
 	}
 </script>

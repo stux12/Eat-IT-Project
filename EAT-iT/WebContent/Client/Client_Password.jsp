@@ -1,14 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%
+	String X = request.getParameter("popupX");
+	String Y = request.getParameter("popupY");
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>EAT iT - 암호 찾기</title>
 <link rel="shortcut icon" href="https://blog.kakaocdn.net/dn/k3HEx/btqXXkUK7Mn/C3fJjMv7RIoFzVxa3W9MU1/favicon%20%282%29.ico?attach=1&knm=tfile.ico">
-<!-- 메뉴바 -->
-<link href="/EAT-iT/CSS/Style_Client.css?after" rel="stylesheet"
-	type="text/css">
 
 <!-- section -->
 <style>
@@ -18,9 +19,18 @@
 	padding: 5px;
 }
 
+* {
+   margin:0px;
+   padding:0px;
+   list-style:none;
+   text-decoration:none;
+   border-collapse:collapse;
+}
+
 .Login_Logo img {
 	width: 400px;
 	height: 300px;
+	margin-top: -70px;
 	margin-bottom: -100px;
 }
 
@@ -114,12 +124,14 @@
 						maxlength="4" /></td>
 				</tr>
 			</table>
+			<input type="hidden" name="X" value=<%=X%>/>
+			<input type="hidden" name="Y" value=<%=Y%>/>
 			<div class="ButtonDiv">
 				<input type="submit" value="찾기" />
 				<input type="button" value="취소" onclick="Button1_Click()" />
 			</div>
 			<div class="Id_Join">
-				EAT iT ID를 잊어버린 경우 <a href="/EAT-iT/Client/Client_Id.jsp">아이디 찾기</a>
+				EAT iT ID를 잊어버린 경우 <a href="/EAT-iT/Client/Client_Id.jsp?popupX=<%=X%>&popupY=<%=Y %>">아이디 찾기</a>
 			</div>
 		</form>
 	</section>
@@ -136,7 +148,7 @@
 <!-- script -->
 <script>
 	function Button1_Click() {
-		location.href = '/EAT-iT/Client/Client_Login.jsp';
+		window.close();
 	}
 </script>
 

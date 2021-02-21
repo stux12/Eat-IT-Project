@@ -79,7 +79,7 @@ public class DAO {
 		String sql = "SELECT ID FROM EAT_IT_MEMBER WHERE ID=?";
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, id1);
+			pstmt.setString(1, id1.toLowerCase());
 			rs = pstmt.executeQuery();
 			if (rs.next() || id1.equals("")) {
 				return 0;// 사용불가
@@ -95,11 +95,12 @@ public class DAO {
 	// 전체검색할때 사용
 	public ArrayList<MemberVO> Client_AllView() throws SQLException {
 		ArrayList<MemberVO> MemberArray = new ArrayList<MemberVO>();
-		String sql = "SELECT * FROM EAT_IT_MEMBER WHERE ADMIN!='0' ORDER BY id";
+		String sql = "SELECT * FROM EAT_IT_MEMBER WHERE ADMIN!='1' ORDER BY id";
 		pstmt = con.prepareStatement(sql);
 		rs = pstmt.executeQuery();
 		while (rs.next()) {
 			String id = rs.getString(1);
+			System.out.println(id);
 			String pw = rs.getString(2);
 			String nick = rs.getString(3);
 			String name = rs.getString(4);
@@ -141,14 +142,15 @@ public class DAO {
 	// 아이디찾기
 	public MemberVO Client_OneJoinId(String name, String tel1) throws SQLException {
 		MemberVO vo1 = null;
-		String sql = "SELECT ID FROM EAT_IT_MEMBER WHERE NAME=? AND PHONENUMBER=?";
+		String sql = "SELECT ID,NAME FROM EAT_IT_MEMBER WHERE NAME=? AND PHONENUMBER=?";
 		pstmt = con.prepareStatement(sql);
 		pstmt.setString(1, name);
 		pstmt.setString(2, tel1);
 		rs = pstmt.executeQuery();
 		if (rs.next()) {
 			String id = rs.getString(1);
-			vo1 = new MemberVO(id);
+			String name1 = rs.getString(2);
+			vo1 = new MemberVO(id, name1);
 		} else {
 			vo1 = null;
 		}
@@ -158,15 +160,17 @@ public class DAO {
 	// 비밀번호찾기
 	public MemberVO Client_OneJoinPw(String id1, String irum1, String tel1) throws SQLException {
 		MemberVO vo1 = null;
-		String sql = "SELECT PW FROM EAT_IT_MEMBER WHERE ID=? AND NAME=? AND PHONENUMBER=?";
+		String sql = "SELECT ID,PW,NAME FROM EAT_IT_MEMBER WHERE ID=? AND NAME=? AND PHONENUMBER=?";
 		pstmt = con.prepareStatement(sql);
 		pstmt.setString(1, id1);
 		pstmt.setString(2, irum1);
 		pstmt.setString(3, tel1);
 		rs = pstmt.executeQuery();
 		if (rs.next()) {
-			String pw = rs.getString(1);
-			vo1 = new MemberVO(pw);
+			String id = rs.getString(1);
+			String pw = rs.getString(2);
+			String name = rs.getString(3);
+			vo1 = new MemberVO(id, pw, name);
 		} else {
 			vo1 = null;
 		}
@@ -174,15 +178,14 @@ public class DAO {
 	}
 
 	// 회원업데이트
-	public boolean Client_Update(String pw, String nick, String name, String tel, String id) {
-		String sql = "UPDATE EAT_IT_MEMBER SET PW=?, NICK=?, NAME=?, PHONENUMBER=? WHERE ID=?";
+	public boolean Client_Update(String nick, String name, String tel, String id) {
+		String sql = "UPDATE EAT_IT_MEMBER SET NICK=?, NAME=?, PHONENUMBER=? WHERE ID=?";
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, pw);
-			pstmt.setString(2, nick);
-			pstmt.setString(3, name);
-			pstmt.setString(4, tel);
-			pstmt.setString(5, id);
+			pstmt.setString(1, nick);
+			pstmt.setString(2, name);
+			pstmt.setString(3, tel);
+			pstmt.setString(4, id);
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			System.out.println("update Exception");
@@ -243,7 +246,7 @@ public class DAO {
 	// 찜목록에 있는걸 보기
 	public ArrayList<DibsVO> Client_DibsListJoin(String id1) throws SQLException {
 		ArrayList<DibsVO> array = new ArrayList<DibsVO>();
-		String sql = "SELECT DISTINCT L.MUTUAL, M.FIRSTIMG FROM EAT_IT_LIKE L, EAT_IT_MUTUALIMG M WHERE ID=? AND L.MUTUAL = M.MUTUAL";
+		String sql = "SELECT DISTINCT L.MUTUAL, M.FIRSTIMG FROM EAT_IT_LIKE L, EAT_IT_MUTUALIMG M WHERE ID=? AND L.MUTUAL = M.MUTUAL ORDER BY L.MUTUAL";
 		pstmt = con.prepareStatement(sql);
 		pstmt.setString(1, id1);
 		rs = pstmt.executeQuery();

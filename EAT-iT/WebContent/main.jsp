@@ -10,6 +10,19 @@
 <link rel="shortcut icon" href="https://blog.kakaocdn.net/dn/k3HEx/btqXXkUK7Mn/C3fJjMv7RIoFzVxa3W9MU1/favicon%20%282%29.ico?attach=1&knm=tfile.ico">
 <link rel="stylesheet" type="text/css" href="CSS/main_style.css">
 <script>
+	//로그인할시 찾아감
+	function Login() {
+		width = 800;
+		height = 600;
+		popupX = (window.screen.width/2) - (width/2);
+		popupY = (window.screen.height/2) - (height/2);
+		console.log(window.screen.width);
+		console.log(window.screen.height);
+		url = "Client/Client_Login.jsp";
+		window.open(url,"_blank", "width="+width+", height="+height+",left="+popupX+",top="+popupY);
+	}
+
+
 	$(function() {/* 메인 페이드인 아웃 슬라이드쇼 부분  */
 		$(".slide a:eq(1)").hide();
 		$(".slide a:eq(2)").hide();
@@ -255,18 +268,18 @@
 				</div>
 				<div class="menubar_menulist">
 
-					<c:if test="${(id1!=null&&id1!='admin') ? true : false}">
+					<c:if test="${(id1!=null&&id1!='ADMIN') ? true : false}">
 						<a href="ClientDibsListView.do"><button class="dropbtn">찜
 								리스트</button></a>
 						<a href="ClientOneView.do"><button class="dropbtn">내정보</button></a>
 						<a href="LogOut.do"><button class="dropbtn">로그아웃</button></a>
 					</c:if>
-					<c:if test="${(id1=='admin') ? true : false }">
+					<c:if test="${(id1=='ADMIN') ? true : false }">
 						<a href="ClientAllView.do"><button class="dropbtn">회원관리</button></a>
+						<a href="LogOut.do"><button class="dropbtn">로그아웃</button></a>
 					</c:if>
 					<c:if test="${(id1==null) ? true : false}">
-						<a href="/EAT-iT/Client/Client_Login.jsp?from=/main.jsp"><button
-                        class="dropbtn">로그인</button></a>
+						<button class="dropbtn" onclick="Login();">로그인</button>
 
 					</c:if>
 				</div>

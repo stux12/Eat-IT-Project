@@ -7,14 +7,14 @@
 <title>EAT iT - 내 정보 보기</title>
 <link rel="shortcut icon" href="https://blog.kakaocdn.net/dn/k3HEx/btqXXkUK7Mn/C3fJjMv7RIoFzVxa3W9MU1/favicon%20%282%29.ico?attach=1&knm=tfile.ico">
 <!-- 메뉴바 -->
-<link href="/EAT-iT/CSS/Style_Client.css?after" rel="stylesheet"
-	type="text/css">
+
 
 <!-- section -->
 <style>
 .Login_Logo img {
 	width: 400px;
 	height: 300px;
+	margin-top: -70px;
 	margin-bottom: -100px;
 }
 
@@ -43,7 +43,7 @@
 	margin-bottom: -5px;
 }
 
-.Id1 input, .Pw1 input, .Nick1 input, .Irum1 input {
+.Id1 input, .Nick1 input, .Irum1 input {
 	width: 200px;
 	height: 30px;
 }
@@ -78,13 +78,7 @@
 </head>
 <body>
 	<!-- 상단부분 -->
-	<header>
-		<div class="menubar">
-			<div class="logo">
-				<a href="/EAT-iT/main.jsp"></a>
-			</div>
-		</div>
-	</header>
+	 <%@ include file="../mainframe/header.jsp"%>
 
 
 
@@ -98,19 +92,12 @@
 		<form method="post" name="Form">
 			<table class="Table1">
 				<tr>
-					<td class="Join" colspan="3"><h3>EAT iT 정보조회</h3></td>
+					<td class="Join" colspan="3"><h3>정보조회</h3></td>
 				</tr>
 				<tr>
 					<td class="Id">아이디</td>
 					<td class="Id1"><input type="text" value="${vo1.id}"
-						name="id1" readonly /></td>
-				<tr>
-					<td class="Pw">패스워드</td>
-					<td class="Pw1"><input type="password" value="${vo1.pw}"
-						name="pw1" maxlength="50" required
-						pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{6,}$"
-						title="8자이상 하나의 문자 숫자 특수기호를 포함해야합니다" /></td>
-				</tr>
+						name="id1" disabled/></td>
 				<tr>
 					<td class="Nick">닉네임</td>
 					<td class="Nick1"><input type="text" value="${vo1.nick}"

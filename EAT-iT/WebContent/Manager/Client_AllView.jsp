@@ -11,19 +11,8 @@
 	type="text/css">
 
 <style>
-.Login_Logo img {
-	width: 400px;
-	height: 300px;
-	margin-bottom: -100px;
-}
-
-.Login_Logo {
-	text-align: center;
-	margin: 5px;
-	padding: 5px;
-}
-
 .Table1 {
+	margin-top: 100px;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -51,7 +40,11 @@
 .Id1, .Irum1 {
 	width: 150px;
 }
-
+.Button input{
+	border-radius: 5px;
+	background-color: #5882FA;
+	color: white;
+}
 .ButtonDiv {
 	text-align: center;
 	padding: 5px;
@@ -60,7 +53,10 @@
 
 .ButtonDiv input {
 	width: 150px;
-	border-radius: 15px;
+	height: 50px;
+	border-radius: 5px;
+	background-color: #5882FA;
+	color: white;
 }
 
 
@@ -69,26 +65,14 @@
 </head>
 <body>
 	<!-- 상단부분 -->
-	<header>
-		<div class="menubar">
-			<div class="logo">
-				<a href="/EAT-iT/main.jsp"></a>
-			</div>
-		</div>
-	</header>
-
+	<%@ include file="../mainframe/header.jsp"%>
 
 
 	<!-- 중간부분 -->
 	<section>
-		<div class="Login_Logo">
-			<img
-				src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FQvMBl%2FbtqWU73BhKO%2F5wu0ncSqNIH9pLpQ6A4Pm1%2Fimg.png"
-				alt="로고 이미지 크게 들어올곳" />
-		</div>
 		<table class="Table1">
 			<tr>
-				<td class="Join" colspan="4"><h3>EAT iT 정보 전체조회</h3></td>
+				<td class="Join" colspan="4"><h1>전체 회원 정보 조회</h1></td>
 			</tr>
 			<tr>
 				<td class="Count">NO.</td>

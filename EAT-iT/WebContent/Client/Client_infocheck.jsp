@@ -6,6 +6,7 @@
 <%
 	String id1 = request.getParameter("id1");
 	String pw1 = request.getParameter("pw1");
+	String name = request.getParameter("name1");
 	String str = null;
 	DAO dao1 = new DAO();
 	if (id1 != null) {
@@ -77,13 +78,13 @@ th, td {
 		<tr>
 			<td class="title">
 				<%
-					out.println("회원님께서 찾으신 정보는" + str + "입니다");
+					out.println(name+"님께서 찾으신 정보는" + str + "입니다");
 				%>
 			</td>
 		</tr>
 		<tr>
 			<td><input type="button" class="button" value="닫기"
-				onClick="window.close(),parent.opener.location='Client_Login.jsp';"></td>
+				onClick="window.close(); opener.close();"></td>
 		</tr>
 	</table>
 </body>

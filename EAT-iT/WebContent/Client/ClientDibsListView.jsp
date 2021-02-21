@@ -226,7 +226,7 @@ a.top {
 		<table>
 			<c:forEach var="i" items="${alist1}">
 				<tr>
-					<td><a href="detail.do?mutual=${i.mutual}" target="_blank">
+					<td><a href="detail.do?mutual=${i.mutual}" >
 							<img src="${i.img}" class="JJim_img" alt="" />
 					</a></td>
 					<td>${i.mutual}</td>

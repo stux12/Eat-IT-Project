@@ -9,6 +9,7 @@
 <title>EAT iT - 지역별 맛집 추천</title>
 <link rel="shortcut icon" href="https://blog.kakaocdn.net/dn/k3HEx/btqXXkUK7Mn/C3fJjMv7RIoFzVxa3W9MU1/favicon%20%282%29.ico?attach=1&knm=tfile.ico">
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
    <script>
    // 드롭메뉴 스르륵 효과
    function fade() {
@@ -27,12 +28,16 @@
          console.log(id1);
          console.log(str);
             if (id1 == 'null') {
-               alert('로그인부터 해주세용~~');
+            	Swal.fire('로그인후에 찜 등록을 하실 수 있습니다.');
             } else {
                // 가게정보를 mutual값으로 변경하면됨
+               width = 500;
+               height = 280;
+               popupX = (window.screen.width/2) - (width/2);
+			   popupY = (window.screen.height/2) - (height/2);
                url = "Client/Client_DibsListInsert.jsp?id1=" + id1
                      + "&mutual1="+ str;                     
-               window.open(url, "post", "width=500,height=300");
+               window.open(url,"_blank", "width="+width+", height="+height+",left="+popupX+",top="+popupY);
             }
          }
       }

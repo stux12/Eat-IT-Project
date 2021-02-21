@@ -24,7 +24,12 @@ public class ClientLoginCheck implements ClientImpl {
 			//id값 application화 하기 
 			ServletContext app = request.getServletContext();
 			app.setAttribute("id1", id1);
-			response.sendRedirect("/EAT-iT/main.jsp");
+			String check="true";
+			String go = "out.print(\"<script>$(document).ready(function() {opener.parent.location.reload(); window.close();})</script>\");";
+			request.setAttribute("check", check);
+			request.setAttribute("go",go);
+			RequestDispatcher rd1 = request.getRequestDispatcher("/Client/Client_Login.jsp");
+			rd1.forward(request, response);
 		}else {
 			String check="false";
 			request.setAttribute("check", check);
