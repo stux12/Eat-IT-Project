@@ -27,7 +27,7 @@ public class ClientLoginInsert implements ClientImpl {
 			if(sucess) {
 				response.setContentType("text/html; charset=UTF-8"); 
 				PrintWriter writer = response.getWriter(); 
-				writer.println("<script>alter('회원가입에 성공하셨습니다.'); window.close();</script>"); 
+				writer.println("<script>window.close();</script>"); 
 				writer.close();
 			}else {
 				response.setContentType("text/html; charset=UTF-8"); 

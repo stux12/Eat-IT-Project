@@ -43,9 +43,14 @@
 	margin-bottom: -5px;
 }
 
-.Id1 input, .Nick1 input, .Irum1 input {
+.Id1 input,.Pw1 input,.PwCheck1 input, .Nick1 input, .Irum1 input {
 	width: 200px;
 	height: 30px;
+}
+
+.PwChecked{
+	color: red;
+	font-size: 10px;
 }
 
 .Tel1 input:nth-child(1) {
@@ -98,6 +103,29 @@
 					<td class="Id">아이디</td>
 					<td class="Id1"><input type="text" value="${vo1.id}"
 						name="id1" disabled/></td>
+				</tr>
+				<tr>
+					<td class="Pw">비밀번호</td>
+					<td class="Pw1"><input type="password" name="pw1" id="pwc1" value="${vo1.pw }"
+						maxlength="30"
+						pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,30}$"
+						title="8자이상 하나의 문자 숫자 특수기호를 포함해야합니다" required onblur="Pw1()"/></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td id="PwChecked1"></td>
+				</tr>
+				<tr>
+					<td class="PwCheck">비밀번호 확인</td>
+					<td class="PwCheck1"><input type="password" name="pw2" id=pwc2 value="${vo1.pw }"
+						maxlength="30"
+						pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,30}$"
+						title="8자이상 하나의 문자 숫자 특수기호를 포함해야합니다" required onblur="PwCheck();" /></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td id="PwChecked"></td>
+				</tr>
 				<tr>
 					<td class="Nick">닉네임</td>
 					<td class="Nick1"><input type="text" value="${vo1.nick}"
@@ -141,6 +169,35 @@
 
 <!-- script부분 -->
 <script>
+	$(document).ready(function() {
+		document.getElementById("pwc1").focus();
+	})
+	
+	function Pw1() {
+		var pwpatten = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,30}$/g;
+		if($('#pwc1').val().length>1){
+		if(!pwpatten.test($('#pwc1').val())){
+			document.getElementById("PwChecked1").innerHTML = "<p class='PwChecked'>8자이상 하나의 문자 숫자 특수기호를 포함 해야합니다.</p>";
+			document.getElementById('pwc1').focus();
+		}else{
+			document.getElementById("PwChecked1").innerHTML = "";
+		}
+	}
+	}
+	
+	function PwCheck() {
+		var p1 = document.getElementById('pwc1').value;
+		var p2 = document.getElementById('pwc2').value;
+		if(p2.length>1){
+		if (p1 == p2) {
+			document.getElementById("PwChecked").innerHTML = "<p class='PwChecked'> 비밀번호가 일치합니다.</p>";
+		} else {
+			document.getElementById("PwChecked").innerHTML = "<p class='PwChecked'> 비밀번호가 일치하지 않습니다.</p>";
+			document.getElementById('pwc2').focus();
+		}
+		}
+	}
+	
 	function Button1_Click(str) {
 		if (str == "Insert") {
 			Form.action = "ClientUpdate.do";

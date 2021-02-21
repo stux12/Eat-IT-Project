@@ -15,6 +15,7 @@ public class ClientUpdate implements ClientImpl {
 		response.setCharacterEncoding("UTF-8");
 		
 		String id1 = request.getParameter("id1");
+		String pw1 = request.getParameter("pw1");
 		String nick1 = request.getParameter("nick1");
 		String name1 = request.getParameter("name1");
 		String phone1 = request.getParameter("phone1");
@@ -24,7 +25,7 @@ public class ClientUpdate implements ClientImpl {
 		
 		DAO dao1 = new DAO();
 		
-		dao1.Client_Update(nick1, name1, tel1, id1);
+		dao1.Client_Update(pw1, nick1, name1, tel1, id1);
 		
 		response.setContentType("text/html; charset=UTF-8"); 
 		PrintWriter writer = response.getWriter(); 

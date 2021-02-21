@@ -10,6 +10,9 @@
 <link rel="shortcut icon" href="https://blog.kakaocdn.net/dn/k3HEx/btqXXkUK7Mn/C3fJjMv7RIoFzVxa3W9MU1/favicon%20%282%29.ico?attach=1&knm=tfile.ico">
 <link rel="stylesheet" type="text/css" href="CSS/main_style.css">
 <script>
+	$(document).ready(function() {
+		
+	})
 	//로그인할시 찾아감
 	function Login() {
 		width = 800;

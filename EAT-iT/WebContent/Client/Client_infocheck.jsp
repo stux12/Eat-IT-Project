@@ -7,12 +7,13 @@
 	String id1 = request.getParameter("id1");
 	String pw1 = request.getParameter("pw1");
 	String name = request.getParameter("name1");
-	String str = null;
+	String idstr = null;
+	String pwstr = null;
 	DAO dao1 = new DAO();
 	if (id1 != null) {
-		str = id1;
+		idstr = id1;
 	} else if (pw1 != null) {
-		str = pw1;
+		pwstr = pw1;
 	}
 %>
 
@@ -78,7 +79,12 @@ th, td {
 		<tr>
 			<td class="title">
 				<%
-					out.println(name+"님께서 찾으신 정보는" + str + "입니다");
+					if(idstr!=null){
+						out.println(name+"님께서 찾으신 정보는" + idstr + "입니다");
+					}
+					if(pwstr!=null){
+						out.println("임시비밀번호는<br>"+pwstr+"입니다.<br> 로그인후 꼭 수정해주세요");
+					}
 				%>
 			</td>
 		</tr>

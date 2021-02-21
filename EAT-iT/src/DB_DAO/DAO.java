@@ -79,7 +79,7 @@ public class DAO {
 		String sql = "SELECT ID FROM EAT_IT_MEMBER WHERE ID=?";
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, id1.toLowerCase());
+			pstmt.setString(1, id1);
 			rs = pstmt.executeQuery();
 			if (rs.next() || id1.equals("")) {
 				return 0;// 사용불가
@@ -160,7 +160,7 @@ public class DAO {
 	// 비밀번호찾기
 	public MemberVO Client_OneJoinPw(String id1, String irum1, String tel1) throws SQLException {
 		MemberVO vo1 = null;
-		String sql = "SELECT ID,PW,NAME FROM EAT_IT_MEMBER WHERE ID=? AND NAME=? AND PHONENUMBER=?";
+		String sql = "SELECT * FROM EAT_IT_MEMBER WHERE ID=? AND NAME=? AND PHONENUMBER=?";
 		pstmt = con.prepareStatement(sql);
 		pstmt.setString(1, id1);
 		pstmt.setString(2, irum1);
@@ -169,8 +169,12 @@ public class DAO {
 		if (rs.next()) {
 			String id = rs.getString(1);
 			String pw = rs.getString(2);
-			String name = rs.getString(3);
-			vo1 = new MemberVO(id, pw, name);
+			String nick = rs.getString(3);
+			String name = rs.getString(4);
+			String phone = rs.getString(5);
+			String pw2 = "imsipw12!@";
+			Client_Update(pw2, nick, name, phone, id);
+			vo1 = new MemberVO(id, pw2, name);
 		} else {
 			vo1 = null;
 		}
@@ -178,14 +182,15 @@ public class DAO {
 	}
 
 	// 회원업데이트
-	public boolean Client_Update(String nick, String name, String tel, String id) {
-		String sql = "UPDATE EAT_IT_MEMBER SET NICK=?, NAME=?, PHONENUMBER=? WHERE ID=?";
+	public boolean Client_Update(String pw, String nick, String name, String tel, String id) {
+		String sql = "UPDATE EAT_IT_MEMBER SET PW=?, NICK=?, NAME=?, PHONENUMBER=? WHERE ID=?";
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, nick);
-			pstmt.setString(2, name);
-			pstmt.setString(3, tel);
-			pstmt.setString(4, id);
+			pstmt.setString(1, pw);
+			pstmt.setString(2, nick);
+			pstmt.setString(3, name);
+			pstmt.setString(4, tel);
+			pstmt.setString(5, id);
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			System.out.println("update Exception");
