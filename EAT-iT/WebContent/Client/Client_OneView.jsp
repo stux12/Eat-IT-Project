@@ -101,8 +101,7 @@
 				</tr>
 				<tr>
 					<td class="Id">아이디</td>
-					<td class="Id1"><input type="text" value="${vo1.id}"
-						name="id1" disabled/></td>
+					<td class="Id1"><input type="text" value="${vo1.id}" disabled/></td>
 				</tr>
 				<tr>
 					<td class="Pw">비밀번호</td>
@@ -147,11 +146,12 @@
 						maxlength="4" title="숫자만 가능합니다." required /></td>
 				</tr>
 			</table>
+			<input type="hidden" value="${vo1.id}" name="id1" />
 			<input type="hidden" value="${vo1.d}" name="d1" />
 			<div class="ButtonDiv">
 				<input type="submit" value="수정" onclick="Button1_Click('Insert');" />
 				<input type="submit" value="취소" onclick="Button1_Click('NoInsert')" /><br />
-				<br /> 정말 <a href="ClientDelete.do"> 탈퇴</a> 하실건가요?
+				<br /> 정말 <a href="ClientDelete.do?id1=${vo1.id}">탈퇴</a> 하실건가요?
 			</div>
 
 		</form>

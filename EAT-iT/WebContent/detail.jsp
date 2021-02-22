@@ -9,7 +9,7 @@
 <link rel="shortcut icon" href="https://blog.kakaocdn.net/dn/k3HEx/btqXXkUK7Mn/C3fJjMv7RIoFzVxa3W9MU1/favicon%20%282%29.ico?attach=1&knm=tfile.ico">
 <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ed569c66d15e26e2676b3d419b79379e"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-<link rel="stylesheet" type="text/css" href="CSS/Style_Detail.css?after">
+<link rel="stylesheet" type="text/css" href="CSS/Style_Detail.css">
 <script type="text/javascript">
 	// 로그인
 	function Login() {
@@ -137,7 +137,7 @@
 				<div id="restaurant_title_btn">
 						<input id="reviewbtn" type="button" value="리뷰쓰기" onclick="reviewReg1()">
 					<form action="#" style="float:right; margin-left:10px">
-						<input id="jjimbtn" type="button" value="찜버튼" onclick="Button1_Click('JJim');">
+						<input id="jjimbtn" type="button" value="찜" onclick="Button1_Click('JJim');">
 					</form>
 					
 					
@@ -188,7 +188,7 @@
 								<td>
 								<input type="hidden" name="review_id" value="${vo2.review_id }">
 								<input type="hidden" name="mutual" value="${vo.mutual }">
-								<c:if test="${(id1 == vo2.id || id1 == 'admin')}" >
+								<c:if test="${(id1 == vo2.id || id1 == 'ADMIN')}" >
 								<input type="button" value="삭제" style="border:none; outline:0; cursor:pointer;" onclick='location.href="reviewDelete.do?review_id=${vo2.review_id}&mutual=${vo.mutual }";'>
 								</c:if></td>
 							</tr>

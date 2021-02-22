@@ -41,6 +41,8 @@ div#restaurant_title_btn {
 	font-size: 15px;
 	cursor: pointer;
 	border-radius: 10px;
+	background-color:#3450b4;
+	color:white;
 }
 #reviewbtn {
 	width: 100px;
@@ -50,6 +52,8 @@ div#restaurant_title_btn {
 	font-size: 15px;
 	cursor: pointer;
 	border-radius: 10px;
+	background-color:#3450b4;
+	color:white;
 }
 div#restaurant_title {
 	text-align: left;
@@ -103,6 +107,8 @@ table#review_table2 {
 	font-size: 15px;
 	cursor: pointer;
 	border-radius: 10px;
+	background-color:#3450b4;
+	color:white;
 }
 table#nav_table {
 	margin: 0px;

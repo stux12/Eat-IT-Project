@@ -17,20 +17,6 @@
 	text-align: center;
 }
 
-.logo {
-	margin-top: 2px;
-	background-image:
-		url(https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FQvMBl%2FbtqWU73BhKO%2F5wu0ncSqNIH9pLpQ6A4Pm1%2Fimg.png);
-	background-size: cover;
-}
-
-.logo a {
-	display: block;
-	width: 100px;
-	height: 60px;
-	cursor: pointer;
-}
-
 .menubar {
 	position: fixed;
 	z-index: 3;
@@ -131,7 +117,8 @@ section {
 }
 
 .title {
-	background-color: #FFA500;
+	background-color: #3450b4;
+	color:white;
 	font-size: 50px;
 	width: 100%;
 	height: 20%;
@@ -156,7 +143,7 @@ table {
 }
 
 td {
-	border-bottom: 1px solid #FFA500;
+	border-bottom: 1px solid #3450b4;
 }
 
 .JJim_img {

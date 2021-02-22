@@ -8,11 +8,8 @@
 <title>EAT iT - 테마별 맛집 추천</title>
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <link rel="shortcut icon" href="https://blog.kakaocdn.net/dn/k3HEx/btqXXkUK7Mn/C3fJjMv7RIoFzVxa3W9MU1/favicon%20%282%29.ico?attach=1&knm=tfile.ico">
-<link rel="stylesheet" type="text/css" href="CSS/main_style.css">
+<link rel="stylesheet" type="text/css" href="CSS/main_style.css?after">
 <script>
-	$(document).ready(function() {
-		
-	})
 	//로그인할시 찾아감
 	function Login() {
 		width = 800;
@@ -245,7 +242,7 @@
 		style="background-image: url('https://blog.kakaocdn.net/dn/ZUwFl/btqXwcjgu5N/qWpnL8r4UqmtunXpx6MCeK/img.jpg');">
 		<div class="menubar">
 			<div class="logo">
-				<a href="main.jsp"></a>
+				<a href="main.jsp"><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FQvMBl%2FbtqWU73BhKO%2F5wu0ncSqNIH9pLpQ6A4Pm1%2Fimg.png"  /></a>
 			</div>
 
 			<div class="search">

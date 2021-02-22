@@ -34,7 +34,7 @@
 		height:100%;
 		text-align: center;
 		margin: auto;
-		border:3px solid #FFA500;
+		border:3px solid #3450b4;
 	}
 	th, td {
     padding: 18px;
@@ -48,7 +48,7 @@
 	}
 	.button{
 		width:100px;    	
- 	    background-color: #FFA500;
+ 	    background-color: #3450b4;
  	    color:#fff;
 	    padding: 15px 0;
    		text-align: center;

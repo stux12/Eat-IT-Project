@@ -100,7 +100,6 @@ public class DAO {
 		rs = pstmt.executeQuery();
 		while (rs.next()) {
 			String id = rs.getString(1);
-			System.out.println(id);
 			String pw = rs.getString(2);
 			String nick = rs.getString(3);
 			String name = rs.getString(4);
@@ -201,6 +200,7 @@ public class DAO {
 
 	// 회원삭제
 	public boolean Client_Delete(String id1) {
+		ReviewAll_Delete(id1);
 		String sql = "DELETE FROM EAT_IT_MEMBER WHERE ID=?";
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -407,7 +407,20 @@ public class DAO {
 		}
 		return true;
 	}
-
+	// 리뷰 강제 삭제
+	public boolean ReviewAll_Delete(String id) {
+		String sql = "DELETE FROM EAT_IT_REVIEW WHERE ID=?";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.executeUpdate();
+		}catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		return true;
+	}
+	
 	// 리뷰 삭제
 	public boolean Review_Delete(String Mutual, int review_id) {
 		String sql = "DELETE FROM EAT_IT_REVIEW WHERE MUTUAL=? AND REVIEW_ID=?";

@@ -7,8 +7,6 @@
 <meta charset="UTF-8">
 <title>EAT iT - 관리자 페이지</title>
 <link rel="shortcut icon" href="https://blog.kakaocdn.net/dn/k3HEx/btqXXkUK7Mn/C3fJjMv7RIoFzVxa3W9MU1/favicon%20%282%29.ico?attach=1&knm=tfile.ico">
-<link href="/EAT-iT/CSS/Style_Client.css?after" rel="stylesheet"
-	type="text/css">
 
 <style>
 .Table1 {
@@ -81,7 +79,7 @@
 				<td class="out">BAN</td>
 			</tr>
 			<c:forEach var="i" items="${alist1}">
-				<c:set var="count" value="1" />
+				<c:set var="count" value="${count+1}" />
 				<tr>
 					<td class="Count1">${count}.</td>
 					<td class="Id1">${i.id}</td>
@@ -89,7 +87,6 @@
 					<td class="Button"><input type="button" value="BAN"
 						onclick="location.href='ClientDeleteManager.do?id1=${i.id}'" /></td>
 				</tr>
-				<c:set var="count" value="${count + 1}" />
 			</c:forEach>
 			<tr>
 			</tr>

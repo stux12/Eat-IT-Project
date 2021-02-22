@@ -18,18 +18,20 @@
 
 /*  ΰ  */
 .logo {
-	background-image:
-		url(https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FQvMBl%2FbtqWU73BhKO%2F5wu0ncSqNIH9pLpQ6A4Pm1%2Fimg.png);
-	background-size: cover;
-	width: 5%;
+	
+	width:90px;
+	height:60px;
 }
 
-.logo a {
+.logo a {	
 	display: block;
 	width: 100%;
-	height: 60px;
-	cursor: pointer;
+	height: 100%;
 }
+.logo a img{
+width:131%;
+height:131%;
+margin-top:-8px;}
 
 /*  ׸           õ  ޴    */
 .menubar {
@@ -179,7 +181,7 @@ span img {
 	<header class="header">
 		<div class="menubar">
 			<div class="logo">
-				<a href="main.jsp"></a>
+				<a href="main.jsp"><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FQvMBl%2FbtqWU73BhKO%2F5wu0ncSqNIH9pLpQ6A4Pm1%2Fimg.png"  /></a>
 			</div>
 
 			<div class="search">
@@ -205,14 +207,15 @@ span img {
 				</div>
 				<div class="menubar_menulist">
 
-					<c:if test="${(id1!=null&&id1!='admin') ? true : false}">
+					<c:if test="${(id1!=null&&id1!='ADMIN') ? true : false}">
 						<a href="ClientDibsListView.do"><button class="dropbtn">찜
 								리스트</button></a>
 						<a href="ClientOneView.do"><button class="dropbtn">내정보</button></a>
 						<a href="LogOut.do"><button class="dropbtn">로그아웃</button></a>
 					</c:if>
-					<c:if test="${(id1=='admin') ? true : false }">
+					<c:if test="${(id1=='ADMIN') ? true : false }">
 						<a href="ClientAllView.do"><button class="dropbtn">회원관리</button></a>
+						<a href="LogOut.do"><button class="dropbtn">로그아웃</button></a>
 					</c:if>
 					<c:if test="${(id1==null) ? true : false}">
 						<button class="dropbtn" onclick="Login()">로그인</button>
